@@ -23,28 +23,28 @@ async function emit(file, build) {
   console.log('wrote', path.relative(root, file));
 }
 
-// focal = horizontal centre (0–1) of the subject, used for portrait crops (from the mobile references)
+// focal = horizontal centre (0–1) of the subject (Hanon) for the portrait crops. Mapping: docs/IMPLEMENTATION_PLAN.md §1.4.
+// Loaders 2 and 3 reuse section art until the owner adds dedicated loader artwork (swap the file here, nothing else).
 const BACKGROUNDS = [
-  { name: 'home', file: 'backgrounds/home_bg.jpeg', focal: 0.45 },
-  { name: 'about', file: 'backgrounds/about_bg.png', focal: 0.5 },
-  { name: 'news', file: 'backgrounds/news_bg.jpeg', focal: 0.52 },
-  { name: 'discography', file: 'backgrounds/discography_bg.jpeg', focal: 0.33 },
-  { name: 'gallery', file: 'backgrounds/gallery_bg.jpeg', focal: 0.5 },
-  { name: 'loader1', file: 'backgrounds/bg1.jpeg', focal: 0.3 },   // pajamas (also mobile menu)
-  { name: 'loader2', file: 'backgrounds/bg2.jpeg', focal: 0.53 },  // birthday
-  { name: 'loader3', file: 'backgrounds/bg3.jpeg', focal: 0.5 },   // green cardigan
+  { name: 'home', file: 'backgrounds/bg6.jpeg', focal: 0.56 },     // Hanon + giant penguin (逢坂レイ)
+  { name: 'about', file: 'backgrounds/bg7.jpeg', focal: 0.5 },     // Hanon close-up, cosmetics (@Parfait_Pie_12)
+  { name: 'news', file: 'backgrounds/bg4.jpeg', focal: 0.68 },     // café selfie with Kotoha (@snowclole)
+  { name: 'discography', file: 'backgrounds/bg2.jpeg', focal: 0.6 }, // astronauts (artist unknown)
+  { name: 'gallery', file: 'backgrounds/bg1.jpeg', focal: 0.3 },   // balloons + rainbow (artist unknown)
+  { name: 'loader1', file: 'backgrounds/bg5.jpeg', focal: 0.62 },  // 4th anniversary (@snowclole); also the mobile menu
+  { name: 'loader2', file: 'backgrounds/bg2.jpeg', focal: 0.6 },   // = discography art (placeholder)
+  { name: 'loader3', file: 'backgrounds/bg1.jpeg', focal: 0.3 },   // = gallery art (placeholder)
 ];
 const LANDSCAPE_WIDTHS = [1280, 1920, 2560];
 const PORTRAIT_WIDTHS = [720, 1080];
 
 const UI_IMAGES = [
-  { name: 'logo', file: 'icons/kotoha_logo.png', widths: [500, 1000] },
+  // name logo recovered from the archived aiceclass.com; trimmed to its content (822×270) before resizing
+  { name: 'logo', file: 'icons/hanon_logo.png', widths: [400, 800], extract: { left: 98, top: 0, width: 822, height: 270 } },
   { name: 'moesoft', file: 'icons/moesoft_logo.png', widths: [360, 707] },
-  { name: 'profile', file: 'icons/kotoha_profile_picture_square.jpg', widths: [200, 400] },
-  { name: 'pose', file: 'model/kotoha_pose1_fullbody.png', widths: [450, 900] },
-  { name: 'mascot', file: 'model/kotoha_mascot_fullbody_modelsheet.png', widths: [300, 600] },
-  // front view only (top-left of the turnaround sheet) for empty/error states
-  { name: 'mascot-front', file: 'model/kotoha_mascot_fullbody_modelsheet.png', widths: [240], extract: { left: 30, top: 20, width: 540, height: 460 } },
+  { name: 'profile', file: 'icons/hanon_icon.jpeg', widths: [200, 400] },
+  // official front-view model (© AiceClass), trimmed to the figure (752×1611)
+  { name: 'pose', file: 'model/hanon_fullbody_model_front_only.png', widths: [400, 752], extract: { left: 164, top: 133, width: 752, height: 1611 } },
   { name: 'icon-x', file: 'icons/twitter.png', widths: [96] },
   { name: 'icon-youtube', file: 'icons/youtube.png', widths: [96] },
   { name: 'icon-twitch', file: 'icons/twitch.png', widths: [96] },
@@ -112,8 +112,8 @@ async function vectors() {
 
 async function ogImage() {
   await emit(out('og-image.jpg'), async (f) => {
-    const base = await sharp(src('backgrounds/home_bg.jpeg')).resize(1200, 630, { fit: 'cover', position: 'centre' }).toBuffer();
-    const logo = await sharp(src('icons/kotoha_logo.png')).resize({ width: 560 }).toBuffer();
+    const base = await sharp(src('backgrounds/bg6.jpeg')).resize(1200, 630, { fit: 'cover', position: 'centre' }).toBuffer();
+    const logo = await sharp(src('icons/hanon_logo.png')).extract({ left: 98, top: 0, width: 822, height: 270 }).resize({ width: 560 }).toBuffer();
     await sharp(base).composite([{ input: logo, left: 40, top: 40 }]).jpeg({ quality: 82, mozjpeg: true }).toFile(f);
   });
 }

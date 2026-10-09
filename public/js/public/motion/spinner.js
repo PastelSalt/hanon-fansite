@@ -2,7 +2,7 @@
 // progresses, with a small penguin sitting still in the middle. Both stars keep turning (CSS animation → runs on the
 // compositor even while scripts are busy).
 const NS = 'http://www.w3.org/2000/svg';
-export const STAR_PATH = 'M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z';
+export const STAR_PATH = 'M0 -48 C 7 -13 13 -7 48 0 C 13 7 7 13 0 48 C -7 13 -13 7 -48 0 C -13 -7 -7 -13 0 -48 Z';
 const VIEWBOX = '-52 -52 104 104';
 // Ray wedges around the centre (between the diagonals): top, right, bottom, left (clockwise fill order)
 const RAYS = ['M0 0 L-52 -52 L52 -52 Z', 'M0 0 L52 -52 L52 52 Z', 'M0 0 L52 52 L-52 52 Z', 'M0 0 L-52 52 L-52 -52 Z'];
@@ -55,11 +55,12 @@ function build(host) {
     defs,
     svg('path', { class: 's-inner-bg', d: STAR_PATH }),
     group,
-    svg('ellipse', { class: 's-inner-gloss', cx: -5, cy: -16, rx: 3, ry: 8, transform: 'rotate(-20 -5 -16)' }),
+    svg('ellipse', { class: 's-inner-gloss', cx: -4, cy: -20, rx: 2.6, ry: 8, transform: 'rotate(-12 -4 -20)' }),
   );
 
   // The penguin never rotates: it lives outside the turning stars
-  const penguin = svg('svg', { class: 'star-spinner__penguin pg', viewBox: VIEWBOX, 'aria-hidden': 'true', focusable: 'false' });
+  // no viewBox here: the <symbol> brings its own (a second one would shift it by half its size)
+  const penguin = svg('svg', { class: 'star-spinner__penguin pg', 'aria-hidden': 'true', focusable: 'false' });
   penguin.append(svg('use', { href: '/assets/svg/v2-sprite.svg#pg-penguin' }));
 
   host.replaceChildren(outer, inner, penguin);

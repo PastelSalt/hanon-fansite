@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: Phase 2 (identity) on branch `phase-2-identity` |
-| **Current phase** | Phase 3 — art |
+| **Last checkpoint** | 2026-10-09: Phase 3 (art) on branch `phase-3-art` |
+| **Current phase** | Phase 4 — copy review (EN/JA) |
 | **Next action** | See §6 |
 
 ---
@@ -109,9 +109,13 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] `scripts/perf/cdp.js` + `shots.js` (headless Chrome screenshots per section; started early for visual checks)
 - [ ] Style tile ✋ → shown to the owner as real-page screenshots after Phase 3 (art)
 
-### Phase 3 — Art
-- [ ] `optimize-images.js` mapping + focal points; logo trim; UI images; OG image
-- [ ] `srcset`s match emitted files; accents from the art; gallery seed list
+### Phase 3 — Art (branch `phase-3-art`)
+- [x] `optimize-images.js` mapping (§4) + focal points checked on portrait crops; logo trimmed to 822×270 (`logo-400/800`); pose = official front model trimmed to 752×1611 (`pose-400/752`); profile from `hanon_icon.jpeg`; OG image = bg6 + logo; penguin favicons
+- [x] `srcset`s match the emitted files (home/news/gallery top out at 1920; about/discography have 2560); logo/pose `width`/`height` updated (no layout shift); admin/login logos
+- [x] Accents from the art: home `#ffe3a0` (penguin gold), about `#ffc0ce`, news `#f6cfb2`, disco `#cbc8f5`, gallery `#c5e8e4`
+- [x] Gallery seed list: 4 credited fan artworks + key visual, front model, turnaround (© AiceClass); bg1/bg2 wait for their artists
+- [x] `hanonpromotional.png` renamed to `.jpg` (it is a JPEG)
+- [x] Screenshots 1920/1366/390 reviewed. Fixes: spinner penguin offset (an svg viewBox around a symbol that has its own), pointier spinner stars, chips no longer stretch in tall cards
 
 ### Phase 4 — Copy review
 - [ ] EN↔JA check at 390 px; JA review list complete
@@ -126,7 +130,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 
 ## 6. CURRENT FOCUS / NEXT ACTION
 
-Phase 3: optimize-images mapping (bg6 home, bg7 about, bg4 news, bg2 disco, bg1 gallery, loaders bg5/bg2/bg1), logo trim, srcsets, accents, gallery seed list; then screenshots for the owner.
+Phase 4: JA screenshots at 1366 + 390, check line breaks/overflow, then Phase 5 needs the owner's OK per resource.
 
 ---
 

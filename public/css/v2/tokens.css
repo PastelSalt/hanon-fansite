@@ -41,11 +41,11 @@
     --white: #fff;
 
     /* ---- colour: section accents (picked from each section's artwork) */
-    --accent-home: #cdc3f5;     /* placeholders until picked from the artworks (Phase 3) */
-    --accent-about: #bdeef0;
-    --accent-news: #fff0a8;
-    --accent-disco: #ffc4b8;
-    --accent-gallery: #c9efdc;
+    --accent-home: #ffe3a0;     /* penguin gold (bg6: crown, beak) */
+    --accent-about: #ffc0ce;    /* the pink background of bg7 */
+    --accent-news: #f6cfb2;     /* café peach (bg4) */
+    --accent-disco: #cbc8f5;    /* space lavender (bg2) */
+    --accent-gallery: #c5e8e4;  /* balloon aqua (bg1) */
     --accent: var(--accent-home);          /* each section overrides this */
 
     /* ---- type */

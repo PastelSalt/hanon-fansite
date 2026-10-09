@@ -1,4 +1,4 @@
-// Seeds the gallery (plan §3.3): the 5 credited artworks + the official model sheets, uploaded to Cloudinary
+// Seeds the gallery: the credited fan artworks + the official art (key visual, model, turnaround), uploaded to Cloudinary
 // with their credits. Safe to re-run: items already in the database are skipped, files already on Cloudinary reused.
 // Credits come from public/js/public/data.js (the same data the site's credit labels use).
 // Usage: npm run gallery:seed
@@ -14,15 +14,15 @@ const FOLDER = (process.env.CLOUDINARY_FOLDER || 'hanon-fansite/gallery').replac
 const credit = (key) => ({ author: CREDITS[key].handle, source: CREDITS[key].url });
 
 // Listed newest-first: the gallery shows the most recently added item first.
+// Credited fan art only (bg1/bg2 wait for their artists) + the official art (© AiceClass).
 const ITEMS = [
-  { key: 'home-kuroli', file: 'backgrounds/home_bg.jpeg', ...credit('home') },
-  { key: 'birthday-kuroli', file: 'backgrounds/bg2.jpeg', ...credit('loader2') },
-  { key: 'news-parfait-pie', file: 'backgrounds/news_bg.jpeg', ...credit('news') },
-  { key: 'discography-snowclole', file: 'backgrounds/discography_bg.jpeg', ...credit('discography') },
-  { key: 'gallery-snowclole', file: 'backgrounds/gallery_bg.jpeg', ...credit('gallery') },
-  { key: 'model-front-aiceclass', file: 'model/kotoha_fullbody_model_front_only.png', author: 'AiceClass', source: null },
-  { key: 'model-sheet-aiceclass', file: 'model/kotoha_fullbody_modelsheet.png', author: 'AiceClass', source: null },
-  { key: 'mascot-sheet', file: 'model/kotoha_mascot_fullbody_modelsheet.png', author: 'Artist unknown (作者不明)', source: null },
+  { key: 'home-6963saki', file: 'backgrounds/bg6.jpeg', ...credit('home') },
+  { key: 'about-parfait-pie', file: 'backgrounds/bg7.jpeg', ...credit('about') },
+  { key: 'news-snowclole', file: 'backgrounds/bg4.jpeg', ...credit('news') },
+  { key: 'anniversary-snowclole', file: 'backgrounds/bg5.jpeg', ...credit('loader1') },
+  { key: 'key-visual-aiceclass', file: 'model/hanonpromotional.jpg', author: 'AiceClass', source: null },
+  { key: 'model-front-aiceclass', file: 'model/hanon_fullbody_model_front_only.png', author: 'AiceClass', source: null },
+  { key: 'model-sheet-aiceclass', file: 'model/charactermodelsheet.jpeg', author: 'AiceClass', source: null },
 ];
 
 const cloud = { name: process.env.CLOUDINARY_CLOUD_NAME, key: process.env.CLOUDINARY_API_KEY, secret: process.env.CLOUDINARY_API_SECRET };

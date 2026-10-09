@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" href="/assets/img/logo-500.webp" as="image" type="image/webp">
+  <link rel="preload" href="/assets/img/logo-400.webp" as="image" type="image/webp">
 
   <!-- Critical loader styles: the blue loader must paint before anything else loads, and it fades away on its own
        after 12 s even if no script ever runs (the stars keep turning meanwhile: pure CSS). -->
@@ -73,25 +73,25 @@
       <svg class="spark spark--gold twinkle" style="--d: .8; left: 78%; top: 70%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
       <svg class="spark spark--pink twinkle" style="--d: 1.5; left: 14%; top: 44%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
     </div>
-    <img class="loader__logo" src="/assets/img/logo-500.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 900px) 30vw, 80vw" alt="Hanon" width="1000" height="288">
+    <img class="loader__logo" src="/assets/img/logo-400.webp" srcset="/assets/img/logo-400.webp 400w, /assets/img/logo-800.webp 800w" sizes="(min-width: 900px) 30vw, 80vw" alt="Hanon" width="822" height="270">
     <div class="loader__status">
       <div class="star-spinner" id="loader-spinner" aria-hidden="true">
         <svg class="star-spinner__outer" viewBox="-52 -52 104 104" focusable="false">
-          <path class="s-outer" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/>
-          <path class="s-outer-shade" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z" transform="scale(0.72)"/>
+          <path class="s-outer" d="M0 -48 C 7 -13 13 -7 48 0 C 13 7 7 13 0 48 C -7 13 -13 7 -48 0 C -13 -7 -7 -13 0 -48 Z"/>
+          <path class="s-outer-shade" d="M0 -48 C 7 -13 13 -7 48 0 C 13 7 7 13 0 48 C -7 13 -13 7 -48 0 C -13 -7 -7 -13 0 -48 Z" transform="scale(0.72)"/>
         </svg>
         <svg class="star-spinner__inner" viewBox="-52 -52 104 104" focusable="false">
-          <defs><clipPath id="loader-clip"><path d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/></clipPath></defs>
-          <path class="s-inner-bg" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/>
+          <defs><clipPath id="loader-clip"><path d="M0 -48 C 7 -13 13 -7 48 0 C 13 7 7 13 0 48 C -7 13 -13 7 -48 0 C -13 -7 -7 -13 0 -48 Z"/></clipPath></defs>
+          <path class="s-inner-bg" d="M0 -48 C 7 -13 13 -7 48 0 C 13 7 7 13 0 48 C -7 13 -13 7 -48 0 C -13 -7 -7 -13 0 -48 Z"/>
           <g clip-path="url(#loader-clip)">
             <path class="ray" d="M0 0 L-52 -52 L52 -52 Z"/>
             <path class="ray" d="M0 0 L52 -52 L52 52 Z"/>
             <path class="ray" d="M0 0 L52 52 L-52 52 Z"/>
             <path class="ray" d="M0 0 L-52 52 L-52 -52 Z"/>
           </g>
-          <ellipse class="s-inner-gloss" cx="-5" cy="-16" rx="3" ry="8" transform="rotate(-20 -5 -16)"/>
+          <ellipse class="s-inner-gloss" cx="-4" cy="-20" rx="2.6" ry="8" transform="rotate(-12 -4 -20)"/>
         </svg>
-        <svg class="star-spinner__penguin pg" viewBox="-52 -52 104 104" focusable="false"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
+        <svg class="star-spinner__penguin pg" focusable="false"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
       </div>
       <p class="loader__text" id="loader-text">Loading…</p>
       <p class="loader__fact paper" id="loader-fact"></p>
@@ -105,10 +105,10 @@
   <!-- ===================================================================== FIXED ARTWORK BACKDROP (crossfades between sections) -->
   <div class="backdrop" id="backdrop" aria-hidden="true">
     <div class="backdrop__pan">
-      <picture class="backdrop__art" data-art="home"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/home-p720.webp 720w, /assets/bg/home-p1080.webp 1080w" sizes="100vw"><img data-bg="home" src="/assets/bg/home-1920.webp" srcset="/assets/bg/home-1280.webp 1280w, /assets/bg/home-1920.webp 1920w, /assets/bg/home-2560.webp 2560w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></picture>
-      <picture class="backdrop__art" data-art="about"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/about-p720.webp 720w, /assets/bg/about-p1080.webp 1080w" sizes="100vw"><img data-bg="about" fetchpriority="low" src="/assets/bg/about-1920.webp" srcset="/assets/bg/about-1280.webp 1280w, /assets/bg/about-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
-      <picture class="backdrop__art" data-art="news"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/news-p720.webp 720w, /assets/bg/news-p1080.webp 1080w" sizes="100vw"><img data-bg="news" fetchpriority="low" src="/assets/bg/news-1920.webp" srcset="/assets/bg/news-1280.webp 1280w, /assets/bg/news-1920.webp 1920w, /assets/bg/news-2560.webp 2560w" sizes="100vw" alt="" decoding="async"></picture>
-      <picture class="backdrop__art" data-art="discography"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/discography-p720.webp 720w, /assets/bg/discography-p1080.webp 1080w" sizes="100vw"><img data-bg="discography" fetchpriority="low" src="/assets/bg/discography-1920.webp" srcset="/assets/bg/discography-1280.webp 1280w, /assets/bg/discography-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="home"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/home-p720.webp 720w, /assets/bg/home-p1080.webp 1080w" sizes="100vw"><img data-bg="home" src="/assets/bg/home-1920.webp" srcset="/assets/bg/home-1280.webp 1280w, /assets/bg/home-1920.webp 1920w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></picture>
+      <picture class="backdrop__art" data-art="about"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/about-p720.webp 720w, /assets/bg/about-p1080.webp 1080w" sizes="100vw"><img data-bg="about" fetchpriority="low" src="/assets/bg/about-1920.webp" srcset="/assets/bg/about-1280.webp 1280w, /assets/bg/about-1920.webp 1920w, /assets/bg/about-2560.webp 2560w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="news"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/news-p720.webp 720w, /assets/bg/news-p1080.webp 1080w" sizes="100vw"><img data-bg="news" fetchpriority="low" src="/assets/bg/news-1920.webp" srcset="/assets/bg/news-1280.webp 1280w, /assets/bg/news-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="discography"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/discography-p720.webp 720w, /assets/bg/discography-p1080.webp 1080w" sizes="100vw"><img data-bg="discography" fetchpriority="low" src="/assets/bg/discography-1920.webp" srcset="/assets/bg/discography-1280.webp 1280w, /assets/bg/discography-1920.webp 1920w, /assets/bg/discography-2560.webp 2560w" sizes="100vw" alt="" decoding="async"></picture>
       <picture class="backdrop__art" data-art="gallery"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/gallery-p720.webp 720w, /assets/bg/gallery-p1080.webp 1080w" sizes="100vw"><img data-bg="gallery" fetchpriority="low" src="/assets/bg/gallery-1920.webp" srcset="/assets/bg/gallery-1280.webp 1280w, /assets/bg/gallery-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
     </div>
   </div>
@@ -116,7 +116,7 @@
   <!-- ===================================================================== FLOATING NAV -->
   <header class="site-nav">
     <nav class="nav-pill paper" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main navigation">
-      <a class="nav-pill__logo" href="#home" data-nav-link="home" data-confetti><img src="/assets/img/logo-500.webp" alt="Hanon — home" width="500" height="144"></a>
+      <a class="nav-pill__logo" href="#home" data-nav-link="home" data-confetti><img src="/assets/img/logo-400.webp" alt="Hanon — home" width="400" height="131"></a>
       <ul class="nav-pill__links" id="nav-links">
         <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
         <li><a href="#about" data-nav-link="about" data-i18n="nav.about">about</a></li>
@@ -142,7 +142,7 @@
   <!-- ===================================================================== MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" data-i18n-attr="aria-label:common.menu" aria-label="menu" inert>
     <button class="mobile-menu__close" type="button" data-menu-close data-i18n-attr="aria-label:a11y.closeMenu" aria-label="Close menu"><svg class="icon"><use href="#i-x"/></svg></button>
-    <img class="mobile-menu__logo" src="/assets/img/logo-500.webp" alt="Hanon" width="500" height="144">
+    <img class="mobile-menu__logo" src="/assets/img/logo-400.webp" alt="Hanon" width="400" height="131">
     <nav class="mobile-menu__nav" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main navigation">
       <ul>
         <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
@@ -187,7 +187,7 @@
       <div class="home-comp">
         <div class="home-comp__left">
           <div class="home-brand">
-            <img class="home-brand__logo reveal-pop" src="/assets/img/logo-1000.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 1100px) 460px, 90vw" alt="Hanon" width="1000" height="288">
+            <img class="home-brand__logo reveal-pop" src="/assets/img/logo-800.webp" srcset="/assets/img/logo-400.webp 400w, /assets/img/logo-800.webp 800w" sizes="(min-width: 1100px) 460px, 90vw" alt="Hanon" width="822" height="270">
             <p class="home-brand__tag"><span class="label-chip"><svg class="pg" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>HaKoniwalily</span><span class="label-chip">StellaPhizz</span><span class="label-chip" data-i18n="home.unitHoney">HoneyWorks guest vocal</span><span class="label-chip" data-i18n="home.unitVtuber">Singer · VTuber</span></p>
           </div>
           <ul class="socials reveal" data-socials data-i18n-attr="aria-label:a11y.socials" aria-label="Hanon's official channels"></ul>
@@ -281,7 +281,7 @@
             <svg class="pg pg--pale ripple-stage__star" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg>
             <svg class="pg ripple-stage__ring" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#ripple"/></svg>
             <button class="ripple-stage__pose drift" type="button" data-pose data-i18n-attr="aria-label:about.tapHint" aria-label="Tap Hanon!">
-              <img src="/assets/img/pose-450.webp" srcset="/assets/img/pose-450.webp 450w, /assets/img/pose-900.webp 900w" sizes="(min-width: 900px) 300px, 60vw" alt="Hanon's official full-body model, standing" data-i18n-attr="alt:about.poseAlt" width="1339" height="2400" loading="lazy" decoding="async">
+              <img src="/assets/img/pose-400.webp" srcset="/assets/img/pose-400.webp 400w, /assets/img/pose-752.webp 752w" sizes="(min-width: 900px) 300px, 60vw" alt="Hanon's official full-body model, standing" data-i18n-attr="alt:about.poseAlt" width="752" height="1611" loading="lazy" decoding="async">
             </button>
             <svg class="spark spark--gold twinkle" aria-hidden="true" style="--d: .3; position: absolute; left: 8%; top: 12%; width: 26px; height: 26px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
             <svg class="spark spark--pink twinkle" aria-hidden="true" style="--d: 1.1; position: absolute; right: 6%; top: 30%; width: 20px; height: 20px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
