@@ -6,7 +6,7 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: Phase 4 (copy review) on branch `phase-4-copy` |
+| **Last checkpoint** | 2026-10-09: Phase 7 harness + baseline on branch `phase-7-perf` (Phases 5–6 wait for the owner's OK on infra) |
 | **Current phase** | Phase 5 — infra (waiting for the owner's OK per resource) |
 | **Next action** | See §6 |
 
@@ -125,8 +125,16 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 
 ### Phase 5 — Infra + seed ✋ (owner OK per resource)
 ### Phase 6 — Admin smoke test
-### Phase 7 — Perf + behaviour harness (`scripts/perf/`)
+### Phase 7 — Perf + behaviour harness (`scripts/perf/`, branch `phase-7-perf`) — harness done, final numbers after the gallery is seeded
+- [x] `cdp.js` (headless Chrome over CDP, Node WebSocket, optional real GPU), `server.js` (serves any site's `public/` with its vercel.json headers, proxies `/api/public/*` read-only, `/api/track` → 204), `shots.js`, `scroll-bench.js` (rAF frame recorder, long tasks, `TRACE=1` per-thread breakdown, `OFF=` isolation), `behaviour.js` (32 checks)
+- [x] Behaviour suite 32/32 locally (lightbox check skipped while the gallery is empty). Found + fixed an inherited bug: the marquee threw (and could stop) when motion was re-enabled while reversed after scrolling up (chip filed for the Kotoha repo)
+- [x] Scroll bench on this machine = the owner's GPU class (headless Chrome confirms **AMD Radeon Vega 3**, radeonsi, Linux), wheel at the page edge, 1920×1080 back-to-back: **Hanon 13.1 fps · Hanon design on Kotoha's data 13.6 · Kotoha 12.6** → the rebrand costs nothing (slightly cheaper). Plain-text page = 60 fps (harness ceiling fine)
+- [x] Where the time goes: the **GPU process** is busy ~25 s of a ~38 s run (raster/compositing), page main thread ~7 s. No single effect dominates: all animations off → 14 fps; backdrop off → 17.6; animations + backdrop + filters + shadows + text strokes off → 27.9. The cost is rasterising this detailed page while scrolling fast on a weak GPU (Kotoha's recorded 35–38 fps came from the owner's Windows machine, not comparable)
+- [ ] Optimisation pass for both sites (leads: fewer/lighter layers while scrolling, raster cost of sprite `<use>` + text strokes, image decode sizes) — owner decision: worth a dedicated session?
+- [ ] Re-measure with the seeded gallery and on the deployed site; owner checks real phones
 ### Phase 8 — QA ✋
+- [x] SRI hashes re-verified against the served CDN bytes (GSAP 3.15.0, SplitText, canvas-confetti 1.9.4): all match
+- [x] Nothing readable under 13 px; no overflow 320–1920 px (Phase 4)
 ### Phase 9 — Launch ✋
 
 ---
