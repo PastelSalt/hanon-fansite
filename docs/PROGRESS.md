@@ -58,6 +58,7 @@
 | OS | Ubuntu 26.04.1 LTS |
 | Node / npm / git | v26.10.0 / 11.19.1 / 2.53.0 |
 | Browser for tests | `/usr/bin/google-chrome` (headless CDP harness, Phase 7) |
+| Vercel CLI | 63.1.0 (global, nvm), logged in as `pastelsalt` (2026-10-09); folder linked (`.vercel/`, git-ignored); `vercel link` also appends `VERCEL_OIDC_TOKEN` to `.env.local`. Deploy: push to `main` (Git-connected) or `vercel deploy --prod` |
 | Kotoha source | `../kotoha-fansite` @ `e5a5cc3` (copied in Phase 1; read-only) |
 | Local preview | `node scripts/dev-server.js` (PORT, default 3000). Without `DATABASE_URL` the public API reads an in-memory PGlite DB loaded from `db/migrations` + `db/seed.sql` (`scripts/dev-db.js`) |
 | Hanon YouTube channel ID | `UCJB1hgmiAD4ysg0Ao7uS8Rw` |
@@ -135,7 +136,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] Behaviour suite on production data (local code + read-only API proxy, analytics swallowed): **33/33** incl. the gallery lightbox
 - [x] Sister-site link in the footer ("Sister site: Kotoha fan site 🍀"), Q8 — both sites are live
 - [x] Kotoha footer links back ("Sister site: Hanon fan site 🐧", commit `b4b722b` in the Kotoha repo, auto-deployed); Hanon redeployed (`dpl_CTR3vq3feMRck4JjAuqfYDQVVvCR`); production load in JA: no console/CSP errors
-- [ ] **Owner:** connect the GitHub repo in Vercel (Project → Settings → Git → Connect `PastelSalt/hanon-fansite`) so pushes to `main` deploy by themselves; until then Claude deploys `main` through the Vercel connector
+- [x] Vercel CLI installed + logged in (owner approved the device login); `vercel link` + `vercel git connect` → pushes to `main` deploy automatically
 - [ ] **Owner:** add `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` in Vercel (+ `.env.local` for scripts), then Claude redeploys
 - [ ] **Owner:** choose the bootstrap admin username/password in `.env.local`, run `npm run admin:bootstrap`, delete the two lines
 ### Phase 6 — Admin smoke test
@@ -169,7 +170,6 @@ Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to cr
 ## 8. OWNER ACTION ITEMS
 
 - Add `CLOUDINARY_API_KEY` + `CLOUDINARY_API_SECRET` to the Vercel project (Sensitive, Production + Preview) and to `.env.local`.
-- Connect the GitHub repo to the Vercel project (Settings → Git) — the connector can deploy from it but can't link an existing project.
 - Bootstrap the owner admin: fill `ADMIN_BOOTSTRAP_USERNAME/PASSWORD` in `.env.local`, run `npm run admin:bootstrap`, then delete both lines.
 - Later: more solo Hanon artwork (#はのぴく) for the loaders (and credits).
 
