@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: Phase 3 (art) on branch `phase-3-art` |
-| **Current phase** | Phase 4 — copy review (EN/JA) |
+| **Last checkpoint** | 2026-10-09: Phase 4 (copy review) on branch `phase-4-copy` |
+| **Current phase** | Phase 5 — infra (waiting for the owner's OK per resource) |
 | **Next action** | See §6 |
 
 ---
@@ -117,8 +117,11 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] `hanonpromotional.png` renamed to `.jpg` (it is a JPEG)
 - [x] Screenshots 1920/1366/390 reviewed. Fixes: spinner penguin offset (an svg viewBox around a symbol that has its own), pointier spinner stars, chips no longer stretch in tall cards
 
-### Phase 4 — Copy review
-- [ ] EN↔JA check at 390 px; JA review list complete
+### Phase 4 — Copy review (branch `phase-4-copy`)
+- [x] EN/JA screenshots (1920/1366/390/360) reviewed: Japanese wraps cleanly (`line-break: strict`), no text overflow, no horizontal page scroll at 320–1920 px (scripted check)
+- [x] Nothing readable under 13 px any more (inherited 9–12 px labels raised: ticket stub, LIVE, flip units, ribbon, stamp, profile kana, facts labels, tile credit, label chips, week strip); decorative text is `aria-hidden` (badge ring, "NO." circles, placeholder covers)
+- [x] Phone nav: 「メニュー」 kept on one line; below 420 px the nav's motion toggle moves out (still in the menu + footer)
+- [x] JA review list complete for everything written so far (`docs/JA_REVIEW_LIST.md`)
 
 ### Phase 5 — Infra + seed ✋ (owner OK per resource)
 ### Phase 6 — Admin smoke test
@@ -130,7 +133,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 
 ## 6. CURRENT FOCUS / NEXT ACTION
 
-Phase 4: JA screenshots at 1366 + 390, check line breaks/overflow, then Phase 5 needs the owner's OK per resource.
+Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to create the Neon project, Cloudinary preset and Vercel project, (3) GitHub repo. Meanwhile, local-only work: Phase 7 harness (perf + behaviour) and the local parts of Phase 8.
 
 ---
 

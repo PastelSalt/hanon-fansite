@@ -32,9 +32,13 @@
     .site-nav .motion-toggle [data-motion-label] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .site-nav .pg-meter { display: none; }
   }
+  /* narrow phones: the motion toggle lives in the menu and the footer, so "menu"/「メニュー」 keeps one line */
+  @media (max-width: 419px) {
+    .site-nav .motion-toggle { display: none; }
+  }
   /* the menu button: a white star + "menu" in a pill (the star turns when the menu opens) */
   .menu-btn {
-    display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px 0 10px; border: 0; border-radius: var(--r-pill);
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; min-height: 36px; padding: 0 14px 0 10px; border: 0; border-radius: var(--r-pill);
     font-size: var(--fs-meta); font-weight: 700; color: var(--white); background: var(--sky-700); box-shadow: var(--shadow-sticker);
   }
   .menu-btn .pg { width: 20px; height: 20px; transition: rotate var(--t-move) var(--ease-pop); }
