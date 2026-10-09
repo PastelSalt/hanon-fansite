@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "Hanon ファンサイト 🐧",
+    "description": "ハコニワリリィ・StellaPhizzのボーカル、Hanon（はのん）の非公式ファンサイトです。最新作、ニュース、ディスコグラフィ、ファンアートを紹介しています。"
+  },
+  "a11y": {
+    "skip": "本文へスキップ",
+    "language": "言語",
+    "mainNav": "メインナビゲーション",
+    "socials": "Hanonの公式チャンネル",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "scrollNext": "次のセクションへ",
+    "loading": "Hanonファンサイトを読み込み中"
+  },
+  "loader": {
+    "loading": "ロード中…",
+    "credit": "このサイトはファンプロジェクトです　制作：Moeko Software and Technologies",
+    "didYouKnow": "知ってた？"
+  },
+  "nav": {
+    "home": "ホーム",
+    "about": "プロフィール",
+    "news": "ニュース",
+    "discography": "ディスコグラフィ",
+    "gallery": "ギャラリー"
+  },
+  "common": {
+    "scrollMore": "スクロールしてね！",
+    "menu": "メニュー",
+    "close": "閉じる",
+    "retry": "読み込めませんでした。タップしてもう一度試してね。",
+    "artUnknown": "作者不明（ご本人様はご連絡ください）",
+    "opensNewTab": "（新しいタブで開きます）"
+  },
+  "links": {
+    "watch": "見る",
+    "listen": "聴く",
+    "details": "詳細",
+    "tickets": "チケット",
+    "official": "公式サイト",
+    "shop": "ショップ"
+  },
+  "home": {
+    "streamLabel": "定期配信まで：",
+    "streamSchedule": "毎週 月曜日・木曜日 21:00〜（日本時間）",
+    "streamLive": "配信の時間です！（21:00〜）",
+    "streamLocal": "あなたの現地時間：{time}",
+    "units": {
+      "d": "日",
+      "h": "時間",
+      "m": "分",
+      "s": "秒"
+    },
+    "unitHoney": "HoneyWorksゲストボーカル",
+    "unitVtuber": "歌い手・VTuber",
+    "nextStream": "次の配信",
+    "live": "配信中！",
+    "unitsShort": {
+      "d": "日",
+      "h": "時間",
+      "m": "分",
+      "s": "秒"
+    },
+    "weekLabel": "今週の配信予定（日本時間）",
+    "days": [
+      "月",
+      "火",
+      "水",
+      "木",
+      "金",
+      "土",
+      "日"
+    ],
+    "pickUp": "PICK UP!",
+    "bubbleVideo": "見てね♡",
+    "fanArtTitle": "ファンアート",
+    "fanArtBy": "ピックアップ・{name}さん",
+    "seeGallery": "ギャラリーを見る ✦"
+  },
+  "video": {
+    "play": "動画を再生：{title}",
+    "latest": "最新",
+    "empty": "動画はまだありません。また見に来てね！🐧",
+    "list": "ほかの作品"
+  },
+  "about": {
+    "avatarAlt": "Hanonのイラスト",
+    "poseAlt": "Hanonの全身モデル（正面）",
+    "bio1": "Hanonは、歌い手・VTuberです。Kotohaとの2人組女性ボーカルユニット「ハコニワリリィ」、3人組音楽ユニット「StellaPhizz」のボーカルとして活動し、HoneyWorksのゲストボーカルも務めています。",
+    "bio2": "2018年に歌ってみたの投稿を始め、2023年7月にAiceClassからVTuberとしてデビュー（初配信は7月9日）。毎週月曜日・木曜日の21:00から、定期配信「はのらじ」で歌やゲーム、雑談を届けています。ファンネームは「はのメン」、ファンマークは🐧。",
+    "pills": [
+      {
+        "label": "誕生日",
+        "value": "3月6日・うお座"
+      },
+      {
+        "label": "身長",
+        "value": "152cm"
+      },
+      {
+        "label": "デビュー",
+        "value": "2018年 歌い手として活動開始・2023年7月9日 VTuberとして初配信（AiceClassから）"
+      },
+      {
+        "label": "活動",
+        "value": "ハコニワリリィ（with Kotoha）・StellaPhizz・HoneyWorksゲストボーカル"
+      },
+      {
+        "label": "ファン",
+        "value": "はのメン・ファンマーク🐧・イメージカラー：ブルー"
+      },
+      {
+        "label": "定期配信",
+        "value": "はのらじ：毎週 月・木 21:00〜・歌枠、ゲーム枠、雑談枠など"
+      },
+      {
+        "label": "ハッシュタグ",
+        "value": "#はのらじ 生配信・#はのうた 歌・#はのぴく ファンアート"
+      },
+      {
+        "label": "好きなもの",
+        "value": "からあげクン・餃子"
+      }
+    ],
+    "tapHint": "Hanonをタップしてね！",
+    "heading": "ABOUT",
+    "role": "歌い手・VTuber（ハコニワリリィ・StellaPhizz）",
+    "hashtags": "ハッシュタグ",
+    "tags": [
+      "#はのらじ 生配信",
+      "#はのうた 歌",
+      "#はのぴく ファンアート",
+      "#はのことうた Hanon×Kotoha"
+    ],
+    "fanMark": "ファンマークは🐧",
+    "facts": [
+      "HanonとKotohaは、2人とも身長152cm。",
+      "ハコニワリリィのほかに、3人組音楽ユニット「StellaPhizz」のボーカルも担当しています。",
+      "TVアニメ『29歳独身中堅冒険者の日常』のOPテーマを「HoneyWorks feat.Hanon」としてソロで歌唱。",
+      "#はのぴく のファンアートは、サムネイルに使われることも。",
+      "趣味は、歌・映画鑑賞・美味しいものを食べること・寝ること。",
+      "いちばん再生されているカバーは「金曜日のおはよう -another story-」。",
+      "HanonとKotohaの声は、CeVIO AIボイスライブラリ「箱庭ハノ・コト」にもなっています。"
+    ]
+  },
+  "news": {
+    "title": "Hanonのニュース",
+    "empty": "ニュースはまだありません。また見に来てね！🐧",
+    "heading": "NEWS",
+    "new": "NEW"
+  },
+  "discography": {
+    "title": "ディスコグラフィ",
+    "achievements": "実績",
+    "empty": "まだ何もありません。また見に来てね！🐧",
+    "types": {
+      "single": "シングル",
+      "album": "アルバム",
+      "ep": "ミニアルバム",
+      "tie_in": "タイアップ",
+      "cover": "カバー",
+      "collab": "コラボ",
+      "other": "リリース"
+    },
+    "noCover": "ジャケット画像なし",
+    "heading": "DISCOGRAPHY",
+    "comingSoon": "もうすぐ公開",
+    "inDays": "あと{n}日",
+    "daysToGo": "日後",
+    "releaseOn": "リリース日・{date}"
+  },
+  "gallery": {
+    "by": "イラスト：{name}",
+    "source": "元の投稿を見る",
+    "loadMore": "もっと見る",
+    "end": "今はここまで！🐧",
+    "empty": "ギャラリーはまだ空っぽです。また見に来てね！🐧",
+    "alt": "{name}さんによるHanonのファンアート",
+    "prev": "前の画像",
+    "next": "次の画像",
+    "counter": "{n} / {total}",
+    "heading": "GALLERY",
+    "thanks": "絵師さん、ありがとう！♡",
+    "note": "すべてのイラストに作者名を表示し、元の投稿へのリンクを付けています。"
+  },
+  "footer": {
+    "disclaimer": "このサイトは非公式・非営利のファンサイトです。Hanon、ハコニワリリィ、StellaPhizz、HoneyWorks、MARUMOCHI、AiceClassとは関係ありません。キャラクターおよびイラストの権利は、それぞれの権利者様・作者様に帰属します。",
+    "contact": "不具合、クレジットの訂正、掲載の取り下げのご依頼はこちらまで：",
+    "sections": "セクション",
+    "official": "公式リンク",
+    "credits": "イラストクレジット",
+    "privacy": "ファンの皆さんに人気のセクションを知るため、訪問数を匿名で集計しています（Cookie・個人情報は使用しません）。",
+    "backToTop": "トップへ戻る 🐧",
+    "made": "ファンサイト制作：Moeko Software and Technologies",
+    "copyright": "© 2026 Moeko Software and Technologies（サイトのデザイン・プログラム）",
+    "settings": "設定"
+  },
+  "credits": {
+    "model": "キャラクターデザイン・モデル",
+    "design": "デザイン：はなあられ・モデリング：鍋公かお・ネームロゴ：© AiceClass"
+  },
+  "motion": {
+    "on": "モーションON",
+    "off": "モーションOFF",
+    "device": "お使いの端末の設定で、動きを減らしています"
+  }
+}

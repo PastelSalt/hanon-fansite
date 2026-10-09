@@ -1,0 +1,28 @@
+{
+  "name": "hanon-fansite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unofficial bilingual fan site for Hanon — by Moeko Software and Technologies",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npx vercel dev",
+    "db:migrate": "node --env-file=.env.local scripts/migrate.js",
+    "db:status": "node --env-file=.env.local scripts/migrate.js --status",
+    "db:seed": "node --env-file=.env.local scripts/run-sql.js db/seed.sql",
+    "admin:bootstrap": "node --env-file=.env.local scripts/admin-bootstrap.js",
+    "images:optimize": "node scripts/optimize-images.js",
+    "prelaunch:reset": "node --env-file=.env.local scripts/prelaunch-reset.js",
+    "gallery:seed": "node --env-file=.env.local scripts/seed-gallery.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@node-rs/argon2": "^2.2.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "sharp": "^0.35.4"
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "title": "Hanon Fan Site 🐧",
+    "description": "An unofficial fan site for Hanon (はのん), vocalist of HaKoniwalily and StellaPhizz — latest works, news, discography and fan art."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "language": "Language",
+    "mainNav": "Main navigation",
+    "socials": "Hanon's official channels",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "scrollNext": "Go to the next section",
+    "loading": "Loading the Hanon fan site"
+  },
+  "loader": {
+    "loading": "Loading…",
+    "credit": "This is a fan-project made by: Moeko Software and Technologies",
+    "didYouKnow": "Did you know?"
+  },
+  "nav": {
+    "home": "home",
+    "about": "about",
+    "news": "news",
+    "discography": "discography",
+    "gallery": "gallery"
+  },
+  "common": {
+    "scrollMore": "scroll for more!",
+    "menu": "menu",
+    "close": "Close",
+    "retry": "Couldn't load this. Tap to try again.",
+    "artUnknown": "Artist unknown — contact us to be credited",
+    "opensNewTab": "(opens in a new tab)"
+  },
+  "links": {
+    "watch": "Watch",
+    "listen": "Listen",
+    "details": "Details",
+    "tickets": "Tickets",
+    "official": "Official site",
+    "shop": "Shop"
+  },
+  "home": {
+    "streamLabel": "Regular Stream:",
+    "streamSchedule": "Mondays & Thursdays from 21:00 JST",
+    "streamLive": "Stream time! (from 21:00 JST)",
+    "streamLocal": "Your local time: {time}",
+    "units": {
+      "d": "days",
+      "h": "hours",
+      "m": "minutes",
+      "s": "seconds"
+    },
+    "unitHoney": "HoneyWorks guest vocal",
+    "unitVtuber": "Singer · VTuber",
+    "nextStream": "Next stream",
+    "live": "LIVE NOW",
+    "unitsShort": {
+      "d": "days",
+      "h": "hrs",
+      "m": "min",
+      "s": "sec"
+    },
+    "weekLabel": "This week's streams (Japan time)",
+    "days": [
+      "MON",
+      "TUE",
+      "WED",
+      "THU",
+      "FRI",
+      "SAT",
+      "SUN"
+    ],
+    "pickUp": "PICK UP!",
+    "bubbleVideo": "check it out ♡",
+    "fanArtTitle": "FAN ART",
+    "fanArtBy": "of the moment · by {name}",
+    "seeGallery": "See the gallery ✦"
+  },
+  "video": {
+    "play": "Play video: {title}",
+    "latest": "Latest",
+    "empty": "No videos yet — check back soon! 🐧",
+    "list": "More works"
+  },
+  "about": {
+    "avatarAlt": "Illustration of Hanon",
+    "poseAlt": "Hanon's official full-body model, standing",
+    "bio1": "Hanon is a singer and VTuber. She's one half of the vocal duo HaKoniwalily together with Kotoha, the vocalist of the music trio StellaPhizz, and a guest vocalist for HoneyWorks.",
+    "bio2": "She started posting covers in 2018 and made her VTuber debut with AiceClass in July 2023 (first stream: July 9). Every Monday and Thursday from 21:00 JST she hosts #はのらじ — singing, games and chats. Her fans are called Hanomen (はのメン), and her fan mark is 🐧.",
+    "pills": [
+      {
+        "label": "Birthday",
+        "value": "March 6 · Pisces"
+      },
+      {
+        "label": "Height",
+        "value": "152 cm"
+      },
+      {
+        "label": "Debut",
+        "value": "Singer since 2018 · VTuber July 9, 2023 (with AiceClass)"
+      },
+      {
+        "label": "Activities",
+        "value": "HaKoniwalily (with Kotoha) · StellaPhizz · HoneyWorks guest vocal"
+      },
+      {
+        "label": "Fans",
+        "value": "Hanomen (はのメン) · fan mark 🐧 · image color blue"
+      },
+      {
+        "label": "Streams",
+        "value": "#はのらじ every Mon & Thu from 21:00 JST · singing, games & chats"
+      },
+      {
+        "label": "Hashtags",
+        "value": "#はのらじ live · #はのうた songs · #はのぴく fan art"
+      },
+      {
+        "label": "Favorites",
+        "value": "Karaage-kun (からあげクン) and gyoza"
+      }
+    ],
+    "tapHint": "Tap Hanon!",
+    "heading": "ABOUT",
+    "role": "Singer · VTuber · HaKoniwalily · StellaPhizz",
+    "hashtags": "Hashtags",
+    "tags": [
+      "#はのらじ live",
+      "#はのうた songs",
+      "#はのぴく fan art",
+      "#はのことうた Hanon×Kotoha"
+    ],
+    "fanMark": "fan mark 🐧",
+    "facts": [
+      "Hanon and Kotoha are both 152 cm tall.",
+      "Besides HaKoniwalily, Hanon is the vocalist of the music trio StellaPhizz.",
+      "She sang the opening theme of 『29歳独身中堅冒険者の日常』 solo, as \"HoneyWorks feat.Hanon\".",
+      "Fan art tagged #はのぴく may be used for her thumbnails.",
+      "Her hobbies: singing, watching movies, eating delicious food and sleeping.",
+      "Her most-viewed cover is 金曜日のおはよう -another story-.",
+      "Hanon and Kotoha's voices are also a CeVIO AI voice library: 箱庭ハノ・コト."
+    ]
+  },
+  "news": {
+    "title": "News on Hanon",
+    "empty": "No news yet — check back soon! 🐧",
+    "heading": "NEWS",
+    "new": "NEW"
+  },
+  "discography": {
+    "title": "Discography",
+    "achievements": "Achievements",
+    "empty": "Nothing here yet — check back soon! 🐧",
+    "types": {
+      "single": "Single",
+      "album": "Album",
+      "ep": "Mini album",
+      "tie_in": "Tie-in",
+      "cover": "Cover",
+      "collab": "Collaboration",
+      "other": "Release"
+    },
+    "noCover": "No cover image",
+    "heading": "DISCOGRAPHY",
+    "comingSoon": "Coming soon",
+    "inDays": "in {n} days",
+    "daysToGo": "DAYS TO GO",
+    "releaseOn": "Release · {date}"
+  },
+  "gallery": {
+    "by": "by {name}",
+    "source": "View original post",
+    "loadMore": "Load more",
+    "end": "That's everything for now! 🐧",
+    "empty": "The gallery is empty for now — check back soon! 🐧",
+    "alt": "Fan art of Hanon by {name}",
+    "prev": "Previous image",
+    "next": "Next image",
+    "counter": "{n} / {total}",
+    "heading": "GALLERY",
+    "thanks": "thank you, artists! ♡",
+    "note": "Every artwork is credited on its tile and in the viewer, with a link to the original post."
+  },
+  "footer": {
+    "disclaimer": "This is an unofficial, non-profit fan site. It is not affiliated with Hanon, HaKoniwalily, StellaPhizz, HoneyWorks, MARUMOCHI or AiceClass. All characters and artwork belong to their respective owners and artists.",
+    "contact": "For issues, credit corrections or removal requests, contact:",
+    "sections": "Sections",
+    "official": "Official links",
+    "credits": "Artwork credits",
+    "privacy": "This site counts visits anonymously (no cookies, no personal data) to see which sections fans enjoy.",
+    "backToTop": "Back to top 🐧",
+    "made": "Fan site made by Moeko Software and Technologies",
+    "copyright": "© 2026 Moeko Software and Technologies (site design & code)",
+    "settings": "Settings"
+  },
+  "credits": {
+    "model": "Character design & model",
+    "design": "Design: はなあられ · Modeling: 鍋公かお · Name logo: © AiceClass"
+  },
+  "motion": {
+    "on": "Motion on",
+    "off": "Motion off",
+    "device": "Your device asks for less motion"
+  }
+}

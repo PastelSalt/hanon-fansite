@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en" data-motion="full" data-site="public">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hanon Fan Site 🐧</title>
+  <meta name="description" content="An unofficial fan site for Hanon (はのん), vocalist of HaKoniwalily and StellaPhizz — latest works, news, discography and fan art.">
+  <meta name="theme-color" content="#fe9fb9">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://hanon-fansite.vercel.app/?lang=en">
+  <link rel="alternate" hreflang="ja" href="https://hanon-fansite.vercel.app/?lang=ja">
+  <link rel="alternate" hreflang="x-default" href="https://hanon-fansite.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hanon Fan Site 🐧">
+  <meta property="og:description" content="An unofficial fan site for Hanon (はのん) — latest works, news, discography and fan art.">
+  <meta property="og:image" content="https://hanon-fansite.vercel.app/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="/assets/img/logo-500.webp" as="image" type="image/webp">
+
+  <!-- Critical loader styles: the pink loader must paint before anything else loads, and it fades away on its own
+       after 12 s even if no script ever runs (the clovers keep turning meanwhile: pure CSS). -->
+  <style>
+    html { background: #fe9fb9; }
+    body { margin: 0; }
+    .loader { position: fixed; inset: 0; z-index: 1000; background: #fe9fb9; overflow: hidden;
+              font-family: 'Fredoka', 'M PLUS Rounded 1c', system-ui, sans-serif;
+              animation: loader-failsafe 0.6s ease 12s forwards; }
+    .loader.is-done { animation: none; }
+    @keyframes loader-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+  </style>
+  <noscript><style>.loader { display: none !important; }</style><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&family=Yomogi&display=swap" rel="stylesheet"></noscript>
+  <script src="/js/motion-boot.js"></script>
+  <script src="/js/prepaint.js"></script>
+
+  <link rel="stylesheet" href="/css/v2/tokens.css">
+  <link rel="stylesheet" href="/css/v2/base.css">
+  <link rel="stylesheet" href="/css/v2/components.css">
+  <link rel="stylesheet" href="/css/v2/sections.css">
+  <link rel="stylesheet" href="/css/v2/layout.css">
+  <link rel="stylesheet" href="/css/v2/motion.css">
+
+  <!-- async: main.js waits for these at most a few seconds (librariesReady), then runs without them -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" integrity="sha256-krualkdvmD0hKivE9UyIkDnBaW3URh1ApzaGCThXD7s=" crossorigin="anonymous" data-lib="gsap" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js" integrity="sha256-QZ9wJ6XwhqEst5iHNtj906btIgAilmHeJbZijKfO00Q=" crossorigin="anonymous" data-lib="SplitText" async></script>
+  <script type="module" src="/js/public/main.js"></script>
+</head>
+<body>
+  <!-- Lucide icons (ISC), inlined as a sprite: https://lucide.dev -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-radio" viewBox="0 0 24 24"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"/><path d="M19.075 4.933a10 10 0 0 1 0 14.134"/><path d="M4.925 19.067a10 10 0 0 1 0-14.134"/><path d="M7.753 16.239a6 6 0 0 1 0-8.478"/><circle cx="12" cy="12" r="2"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <!-- ===================================================================== LOADER (static markup: turns before any script runs) -->
+  <div class="loader iris-out" id="loader" role="status" aria-live="polite" data-i18n-attr="aria-label:a11y.loading" aria-label="Loading the Hanon fan site">
+    <div class="loader__art" aria-hidden="true"></div>
+    <div class="loader__scrim"></div>
+    <div class="deco" aria-hidden="true">
+      <svg class="cl float" style="--d: .4; left: 8%; top: 12%; width: 34px; height: 34px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      <svg class="cl cl--pink float" style="--d: 1.3; left: 88%; top: 16%; width: 28px; height: 28px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      <svg class="spark spark--gold twinkle" style="--d: .8; left: 78%; top: 70%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+      <svg class="spark spark--pink twinkle" style="--d: 1.5; left: 14%; top: 44%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+    </div>
+    <img class="loader__logo" src="/assets/img/logo-500.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 900px) 30vw, 80vw" alt="Hanon" width="1000" height="288">
+    <div class="loader__status">
+      <div class="clover-spinner" id="loader-spinner" aria-hidden="true">
+        <svg class="clover-spinner__outer" viewBox="15 30 545 545" focusable="false">
+          <path class="c-outer" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/>
+          <path class="c-outer-shade" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z" transform="translate(286.5 301) scale(0.8) translate(-286.5 -301)"/>
+        </svg>
+        <svg class="clover-spinner__inner" viewBox="15 30 545 545" focusable="false">
+          <defs><clipPath id="loader-clip"><path d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/></clipPath></defs>
+          <path class="c-inner-bg" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/>
+          <g clip-path="url(#loader-clip)">
+            <rect class="petal" x="15" y="30" width="271.5" height="271"/>
+            <rect class="petal" x="286.5" y="30" width="273.5" height="271"/>
+            <rect class="petal" x="286.5" y="301" width="273.5" height="274"/>
+            <rect class="petal" x="15" y="301" width="271.5" height="274"/>
+          </g>
+          <ellipse class="c-inner-gloss" cx="185" cy="170" rx="44" ry="72" transform="rotate(-40 185 170)"/>
+          <circle class="c-centre" cx="286.5" cy="301" r="34"/>
+        </svg>
+      </div>
+      <p class="loader__text" id="loader-text">Loading…</p>
+      <p class="loader__fact paper" id="loader-fact"></p>
+    </div>
+    <div class="loader__made">
+      <img src="/assets/img/moesoft-360.webp" srcset="/assets/img/moesoft-360.webp 360w, /assets/img/moesoft-707.webp 707w" sizes="110px" alt="Moesoft" width="707" height="354">
+      <span data-i18n="loader.credit">This is a fan-project made by: Moeko Software and Technologies</span>
+    </div>
+  </div>
+
+  <!-- ===================================================================== FIXED ARTWORK BACKDROP (crossfades between sections) -->
+  <div class="backdrop" id="backdrop" aria-hidden="true">
+    <div class="backdrop__pan">
+      <picture class="backdrop__art" data-art="home"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/home-p720.webp 720w, /assets/bg/home-p1080.webp 1080w" sizes="100vw"><img data-bg="home" src="/assets/bg/home-1920.webp" srcset="/assets/bg/home-1280.webp 1280w, /assets/bg/home-1920.webp 1920w, /assets/bg/home-2560.webp 2560w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></picture>
+      <picture class="backdrop__art" data-art="about"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/about-p720.webp 720w, /assets/bg/about-p1080.webp 1080w" sizes="100vw"><img data-bg="about" fetchpriority="low" src="/assets/bg/about-1920.webp" srcset="/assets/bg/about-1280.webp 1280w, /assets/bg/about-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="news"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/news-p720.webp 720w, /assets/bg/news-p1080.webp 1080w" sizes="100vw"><img data-bg="news" fetchpriority="low" src="/assets/bg/news-1920.webp" srcset="/assets/bg/news-1280.webp 1280w, /assets/bg/news-1920.webp 1920w, /assets/bg/news-2560.webp 2560w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="discography"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/discography-p720.webp 720w, /assets/bg/discography-p1080.webp 1080w" sizes="100vw"><img data-bg="discography" fetchpriority="low" src="/assets/bg/discography-1920.webp" srcset="/assets/bg/discography-1280.webp 1280w, /assets/bg/discography-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
+      <picture class="backdrop__art" data-art="gallery"><source media="(max-aspect-ratio: 3/4)" srcset="/assets/bg/gallery-p720.webp 720w, /assets/bg/gallery-p1080.webp 1080w" sizes="100vw"><img data-bg="gallery" fetchpriority="low" src="/assets/bg/gallery-1920.webp" srcset="/assets/bg/gallery-1280.webp 1280w, /assets/bg/gallery-1920.webp 1920w" sizes="100vw" alt="" decoding="async"></picture>
+    </div>
+  </div>
+
+  <!-- ===================================================================== FLOATING NAV -->
+  <header class="site-nav">
+    <nav class="nav-pill paper" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main navigation">
+      <a class="nav-pill__logo" href="#home" data-nav-link="home" data-confetti><img src="/assets/img/logo-500.webp" alt="Hanon — home" width="500" height="144"></a>
+      <ul class="nav-pill__links" id="nav-links">
+        <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
+        <li><a href="#about" data-nav-link="about" data-i18n="nav.about">about</a></li>
+        <li><a href="#news" data-nav-link="news" data-i18n="nav.news">news</a></li>
+        <li><a href="#discography" data-nav-link="discography" data-i18n="nav.discography">discography</a></li>
+        <li><a href="#gallery" data-nav-link="gallery" data-i18n="nav.gallery">gallery</a></li>
+        <li class="nav-pill__dot" aria-hidden="true"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></li>
+      </ul>
+      <span class="clover-meter" id="nav-progress" aria-hidden="true">
+        <svg class="cl clover-meter__base"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="cl clover-meter__fill"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      </span>
+      <div class="lang-pill" data-lang-switch data-active="en"></div>
+      <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
+        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+      </button>
+      <button class="menu-btn nav-pill__menu" type="button" data-menu-open aria-controls="mobile-menu" aria-expanded="false">
+        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-i18n="common.menu">menu</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================================================================== MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" data-i18n-attr="aria-label:common.menu" aria-label="menu" inert>
+    <button class="mobile-menu__close" type="button" data-menu-close data-i18n-attr="aria-label:a11y.closeMenu" aria-label="Close menu"><svg class="icon"><use href="#i-x"/></svg></button>
+    <img class="mobile-menu__logo" src="/assets/img/logo-500.webp" alt="Hanon" width="500" height="144">
+    <nav class="mobile-menu__nav" data-i18n-attr="aria-label:a11y.mainNav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
+        <li><a href="#about" data-nav-link="about" data-i18n="nav.about">about</a></li>
+        <li><a href="#news" data-nav-link="news" data-i18n="nav.news">news</a></li>
+        <li><a href="#discography" data-nav-link="discography" data-i18n="nav.discography">discography</a></li>
+        <li><a href="#gallery" data-nav-link="gallery" data-i18n="nav.gallery">gallery</a></li>
+      </ul>
+    </nav>
+    <ul class="socials" data-socials data-i18n-attr="aria-label:a11y.socials" aria-label="Hanon's official channels"></ul>
+    <div class="mobile-menu__row">
+      <div class="lang-pill" data-lang-switch data-active="en"></div>
+      <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
+        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+      </button>
+    </div>
+    <div class="mobile-menu__credit">
+      <img src="/assets/img/moesoft-360.webp" alt="Moesoft" width="360" height="180" loading="lazy">
+      <span data-i18n="loader.credit">This is a fan-project made by: Moeko Software and Technologies</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <h1 class="visually-hidden" data-i18n="meta.title">Hanon Fan Site 🐧</h1>
+
+    <!-- =================================================================== HOME -->
+    <section class="scene scene--home" id="home" data-section="home" data-art="home" data-accent="home" aria-label="Home">
+      <div class="scrim scrim--home" aria-hidden="true"></div>
+      <span class="bg-word bg-word--home" aria-hidden="true">HANON</span>
+
+      <!-- decorations around the character -->
+      <div class="deco" aria-hidden="true">
+        <svg class="cl deco-parallax float" style="--d: 0; left: 44%; top: 16%; width: 38px; height: 38px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="cl cl--pink float" style="--d: 1.2; left: 60%; top: 74%; width: 30px; height: 30px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="cl cl--gold float" style="--d: 0.6; left: 64%; top: 22%; width: 24px; height: 24px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="spark spark--gold twinkle" style="--d: 0.2; left: 41%; top: 42%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+        <svg class="spark spark--pink twinkle" style="--d: 1; left: 66%; top: 50%; width: 24px; height: 24px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+        <svg class="spark twinkle" style="--d: 1.6; left: 52%; top: 88%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+        <svg class="heart float" style="--d: 0.9; left: 48%; top: 66%"><use href="/assets/svg/v2-sprite.svg#heart"/></svg>
+      </div>
+
+      <div class="home-comp">
+        <div class="home-comp__left">
+          <div class="home-brand">
+            <img class="home-brand__logo reveal-pop" src="/assets/img/logo-1000.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 1100px) 460px, 90vw" alt="Hanon" width="1000" height="288">
+            <p class="home-brand__tag"><span class="label-chip"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>HaKoniwalily</span><span class="label-chip">StellaPhizz</span><span class="label-chip" data-i18n="home.unitHoney">HoneyWorks guest vocal</span><span class="label-chip" data-i18n="home.unitVtuber">Singer · VTuber</span></p>
+          </div>
+          <ul class="socials reveal" data-socials data-i18n-attr="aria-label:a11y.socials" aria-label="Hanon's official channels"></ul>
+          <div class="home-stream reveal">
+            <article class="paper ticket stitch" id="ticket">
+              <div class="ticket__stub"><span data-i18n="home.nextStream">Next stream</span></div>
+              <div class="ticket__body">
+                <p class="ticket__label" id="stream-schedule" data-i18n="home.streamSchedule">Mondays &amp; Thursdays from 21:00 JST</p>
+                <div class="flip" id="flip" aria-hidden="true">
+                  <span class="flip__unit"><span class="flip__num">00</span><small data-i18n="home.unitsShort.d">days</small></span><span class="flip__sep">:</span>
+                  <span class="flip__unit"><span class="flip__num">00</span><small data-i18n="home.unitsShort.h">hrs</small></span><span class="flip__sep">:</span>
+                  <span class="flip__unit"><span class="flip__num">00</span><small data-i18n="home.unitsShort.m">min</small></span><span class="flip__sep">:</span>
+                  <span class="flip__unit"><span class="flip__num">00</span><small data-i18n="home.unitsShort.s">sec</small></span>
+                </div>
+                <p class="visually-hidden" id="stream-sr" aria-live="off"></p>
+                <span class="ticket__live" data-i18n="home.live">LIVE NOW</span>
+              </div>
+            </article>
+            <ol class="week" id="week" data-i18n-attr="aria-label:home.weekLabel" aria-label="This week's streams (Japan time)"></ol>
+          </div>
+          <article class="paper soon soon--mini stitch reveal" id="home-soon" hidden></article>
+          <article class="paper paper--grid fanart reveal" id="home-fanart" hidden></article>
+        </div>
+
+        <div class="home-comp__right">
+          <header class="mini-title reveal">
+            <svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+            <span class="mini-title__en">LATEST NEWS</span><span class="mini-title__ja" lang="ja">最新情報</span>
+          </header>
+          <div class="home-notes" id="home-news" data-state="loading"></div>
+          <div class="home-video reveal">
+            <span class="stamp stamp--pickup home-video__stamp" data-i18n="home.pickUp">PICK UP!</span>
+            <div id="home-video" data-state="loading"></div>
+            <span class="bubble home-video__bubble" data-i18n="home.bubbleVideo">check it out ♡</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="badge-round home-badge" aria-hidden="true">
+        <svg class="badge-round__text" viewBox="0 0 120 120"><defs><path id="badge-path" d="M60 60 m -45 0 a 45 45 0 1 1 90 0 a 45 45 0 1 1 -90 0"/></defs><text><textPath href="#badge-path">HANON ✦ FAN SITE ✦ はのん ✦ HANOMEN ✦</textPath></text></svg>
+        <svg class="cl cl--pink"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      </div>
+      <a class="scroll-cue bob" href="#about" data-i18n-attr="aria-label:a11y.scrollNext" aria-label="Go to the next section"><span data-i18n="common.scrollMore">scroll for more!</span> ✦</a>
+
+      <div class="marquee" id="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>HANON ✦ はのん ✦ HaKoniwalily ✦ StellaPhizz ✦ HoneyWorks ✦ はのメン 🐧 ✦ #はのらじ ✦ #はのうた ✦ #はのぴく ✦&nbsp;</span>
+          <span>HANON ✦ はのん ✦ HaKoniwalily ✦ StellaPhizz ✦ HoneyWorks ✦ はのメン 🐧 ✦ #はのらじ ✦ #はのうた ✦ #はのぴく ✦&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== 01 ABOUT -->
+    <section class="scene" id="about" data-section="about" data-art="about" data-accent="about" aria-labelledby="about-title">
+      <div class="scrim scrim--soft" aria-hidden="true"></div>
+      <span class="bg-word" aria-hidden="true" style="right: -2%; bottom: 4%">PROFILE</span>
+      <p class="v-text v-text--green" lang="ja" aria-hidden="true" style="right: 1.5%; top: 18%">はのんってどんな人？</p>
+      <div class="scene__inner">
+        <header class="sec-title reveal">
+          <span class="sec-title__num"><small>NO.</small>01</span>
+          <h2 class="sec-title__en" id="about-title"><span data-i18n="about.heading">ABOUT</span> <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <p class="sec-title__ja" lang="ja">プロフィール</p>
+          <span class="sec-title__line" aria-hidden="true"></span>
+        </header>
+        <div class="about-comp">
+          <div class="about-comp__card">
+            <article class="paper profile stitch reveal" aria-labelledby="profile-name">
+              <span class="tape"></span>
+              <header class="profile__head">
+                <img class="profile__avatar" src="/assets/img/profile-200.webp" srcset="/assets/img/profile-200.webp 200w, /assets/img/profile-400.webp 400w" sizes="84px" alt="Illustration of Hanon" data-i18n-attr="alt:about.avatarAlt" width="200" height="200" loading="lazy">
+                <div>
+                  <h3 class="profile__name" id="profile-name">Hanon <span lang="ja">はのん</span></h3>
+                  <p class="profile__role" data-i18n="about.role">Singer · VTuber · HaKoniwalily · StellaPhizz</p>
+                  <p class="profile__units"><span class="label-chip">HaKoniwalily</span><span class="label-chip">StellaPhizz</span><span class="label-chip">HoneyWorks</span></p>
+                </div>
+              </header>
+              <dl class="facts" id="about-pills"></dl>
+            </article>
+          </div>
+          <div class="about-comp__side">
+            <div class="paper paper--lined lace about-bio reveal">
+              <p data-i18n="about.bio1">Hanon is a singer and VTuber.</p>
+              <p data-i18n="about.bio2"></p>
+            </div>
+            <div class="paper about-tags reveal">
+              <p class="about-tags__title"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg> <span data-i18n="about.hashtags">Hashtags</span></p>
+              <p class="chips" id="about-tags"></p>
+            </div>
+          </div>
+          <div class="clover-stage reveal">
+            <svg class="cl cl--sky clover-stage__clover" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-round"/></svg>
+            <button class="clover-stage__pose drift" type="button" data-pose data-i18n-attr="aria-label:about.tapHint" aria-label="Tap Hanon!">
+              <img src="/assets/img/pose-450.webp" srcset="/assets/img/pose-450.webp 450w, /assets/img/pose-900.webp 900w" sizes="(min-width: 900px) 300px, 60vw" alt="Hanon's official full-body model, standing" data-i18n-attr="alt:about.poseAlt" width="1339" height="2400" loading="lazy" decoding="async">
+            </button>
+            <svg class="spark spark--gold twinkle" aria-hidden="true" style="--d: .3; position: absolute; left: 8%; top: 12%; width: 26px; height: 26px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+            <svg class="spark spark--pink twinkle" aria-hidden="true" style="--d: 1.1; position: absolute; right: 6%; top: 30%; width: 20px; height: 20px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
+            <span class="bubble bubble--left clover-stage__bubble" data-i18n="about.fanMark">fan mark 🐧</span>
+          </div>
+        </div>
+      </div>
+      <img class="mascot-peek deco-parallax" src="/assets/img/mascot-front-240.webp" alt="" width="240" height="204" style="right: 4%; bottom: -6px">
+    </section>
+
+    <!-- =================================================================== 02 NEWS -->
+    <section class="scene" id="news" data-section="news" data-art="news" data-accent="news" aria-labelledby="news-title">
+      <div class="scrim scrim--left" aria-hidden="true"></div>
+      <span class="bg-word" aria-hidden="true" style="left: -2%; bottom: 2%">NEWS</span>
+      <p class="v-text" lang="ja" aria-hidden="true" style="right: 1.5%; top: 16%">はのんの最新情報</p>
+      <div class="scene__inner">
+        <header class="sec-title reveal">
+          <span class="sec-title__num"><small>NO.</small>02</span>
+          <h2 class="sec-title__en" id="news-title"><span data-i18n="news.heading">NEWS</span> <svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <p class="sec-title__ja" lang="ja">ニュース</p>
+          <span class="sec-title__line" aria-hidden="true"></span>
+        </header>
+        <div class="news-comp">
+          <div class="news-list" id="news-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:news.title" aria-label="News on Hanon"></div>
+          <div class="news-side">
+            <p class="mini-title reveal"><svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en">LATEST WORKS</span><span class="mini-title__ja" lang="ja">最新作</span></p>
+            <div id="news-player" class="reveal" data-state="loading"></div>
+            <div class="film reveal" id="video-list" tabindex="0" data-i18n-attr="aria-label:video.list" aria-label="More works"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== 03 DISCOGRAPHY -->
+    <section class="scene" id="discography" data-section="discography" data-art="discography" data-accent="disco" aria-labelledby="disco-title">
+      <div class="scrim scrim--soft" aria-hidden="true"></div>
+      <span class="bg-word" aria-hidden="true" style="right: -3%; top: 12%">MUSIC</span>
+      <p class="v-text v-text--green" lang="ja" aria-hidden="true" style="left: 1.2%; bottom: 10%">さざなみのように癒す歌声</p>
+      <div class="scene__inner">
+        <header class="sec-title reveal">
+          <span class="sec-title__num"><small>NO.</small>03</span>
+          <h2 class="sec-title__en" id="disco-title"><span data-i18n="discography.heading">DISCOGRAPHY</span> <svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <p class="sec-title__ja" lang="ja">ディスコグラフィ・実績</p>
+          <span class="sec-title__line" aria-hidden="true"></span>
+        </header>
+        <article class="paper soon soon--wide stitch reveal" id="disco-soon" hidden></article>
+        <div class="disco-comp">
+          <div class="paper paper--grid reveal">
+            <div class="sleeves" id="disco-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:discography.title" aria-label="Discography"></div>
+          </div>
+          <div class="paper paper--panel reveal">
+            <p class="mini-title"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en">ACHIEVEMENTS</span><span class="mini-title__ja" lang="ja">実績</span></p>
+            <ol class="timeline" id="achievements-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:discography.achievements" aria-label="Achievements"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== 04 GALLERY (grows with the page) -->
+    <section class="scene" id="gallery" data-section="gallery" data-art="gallery" data-accent="gallery" aria-labelledby="gallery-title">
+      <div class="scrim scrim--soft" aria-hidden="true"></div>
+      <span class="bg-word" aria-hidden="true" style="left: 2%; top: 6%">FAN ART</span>
+      <p class="v-text" lang="ja" aria-hidden="true" style="right: 1.5%; top: 14%">はのメン大集合</p>
+      <div class="scene__inner">
+        <header class="sec-title reveal">
+          <span class="sec-title__num"><small>NO.</small>04</span>
+          <h2 class="sec-title__en" id="gallery-title"><span data-i18n="gallery.heading">GALLERY</span> <svg class="cl cl--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <p class="sec-title__ja" lang="ja">ファンアート</p>
+          <span class="sec-title__line" aria-hidden="true"></span>
+        </header>
+        <p class="gallery-note reveal"><span class="bubble" data-i18n="gallery.thanks">thank you, artists! ♡</span><span class="paper board-note" data-i18n="gallery.note">Every artwork is credited on its tile and in the viewer, with a link to the original post.</span></p>
+        <div class="masonry" id="masonry" data-state="loading"></div>
+        <div class="gallery-sentinel" id="gallery-sentinel" aria-hidden="true"></div>
+        <div class="gallery-more">
+          <button class="btn btn--ghost" type="button" id="gallery-more" hidden data-i18n="gallery.loadMore">Load more</button>
+          <p class="sticker sticker--sm" id="gallery-end" hidden data-i18n="gallery.end">That's everything for now! 🐧</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== FOOTER -->
+  <footer class="foot" id="site-footer" data-section="footer">
+    <div class="foot__inner">
+      <div class="foot__brand">
+        <img src="/assets/img/moesoft-360.webp" srcset="/assets/img/moesoft-360.webp 360w, /assets/img/moesoft-707.webp 707w" sizes="170px" alt="Moesoft — Moeko Software and Technologies" width="707" height="354" loading="lazy">
+        <p class="paper paper--lined" data-i18n="footer.disclaimer">This is an unofficial, non-profit fan site.</p>
+        <p class="ink-soft"><span data-i18n="footer.contact">For issues, credit corrections or removal requests, contact:</span>
+          <a id="contact-mail" href="#contact" data-user="moekosoftware" data-domain="outlook.com">moekosoftware [at] outlook.com</a></p>
+      </div>
+      <nav data-i18n-attr="aria-label:footer.sections" aria-label="Sections">
+        <p class="mini-title"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.sections">Sections</span></p>
+        <ul class="foot__links">
+          <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
+          <li><a href="#about" data-nav-link="about" data-i18n="nav.about">about</a></li>
+          <li><a href="#news" data-nav-link="news" data-i18n="nav.news">news</a></li>
+          <li><a href="#discography" data-nav-link="discography" data-i18n="nav.discography">discography</a></li>
+          <li><a href="#gallery" data-nav-link="gallery" data-i18n="nav.gallery">gallery</a></li>
+        </ul>
+        <p class="foot__privacy" data-i18n="footer.privacy">This site counts visits anonymously (no cookies, no personal data).</p>
+      </nav>
+      <div>
+        <p class="mini-title"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.official">Official links</span></p>
+        <ul class="socials socials--stack" id="footer-links"></ul>
+      </div>
+      <div>
+        <p class="mini-title"><svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.credits">Artwork credits</span></p>
+        <ul class="foot__credits" id="foot-credits"></ul>
+        <p class="mini-title" style="margin-top: var(--s-5)"><svg class="cl cl--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.settings">Settings</span></p>
+        <div class="pieces">
+          <div class="lang-pill" data-lang-switch data-active="en"></div>
+          <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
+            <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span data-i18n="footer.copyright">© 2026 Moeko Software and Technologies (site design &amp; code)</span>
+      <a class="btn btn--ghost btn--sm" href="#home" data-nav-link="home"><svg class="icon"><use href="#i-arrow-up"/></svg> <span data-i18n="footer.backToTop">Back to top 🐧</span></a>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== LIGHTBOX -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <button class="lightbox__close" type="button" data-lightbox-close data-i18n-attr="aria-label:common.close" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev data-i18n-attr="aria-label:gallery.prev" aria-label="Previous image"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+    <figure>
+      <img id="lightbox-img" alt="">
+      <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next data-i18n-attr="aria-label:gallery.next" aria-label="Next image"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  </dialog>
+</body>
+</html>
