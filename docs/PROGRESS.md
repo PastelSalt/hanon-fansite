@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: Phase 1 (import + rebrand of identifiers, data, locales, seed) on branch `phase-1-import` |
-| **Current phase** | Phase 2 — identity (palette, sprite, loader) |
+| **Last checkpoint** | 2026-10-09: Phase 2 (identity) on branch `phase-2-identity` |
+| **Current phase** | Phase 3 — art |
 | **Next action** | See §6 |
 
 ---
@@ -100,14 +100,14 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - Leftovers by design: clover symbols/classes and pink/green colours → Phase 2; Kotoha image file names in `optimize-images.js` / `seed-gallery.js` → Phase 3
 
 ### Phase 2 — Identity (palette, sprite, loader) ✋ style tile
-- [ ] tokens.css palette; admin.css colours; theme-color + critical loader CSS
-- [ ] Sprite: `#pg-penguin`, `#drop`, `#ripple`, `#star`, `#shell`, keep `#spark`, `#heart`
-- [ ] Replace `cl-leaf`/`cl-round` uses, `.clover-*` classes, `--clover-mask` → shell mask
-- [ ] Loader spinner: 4-point stars, rays fill with progress, static penguin centre
-- [ ] Sparkles pools, favicon SVG/PNGs in `optimize-images.js`
-- [ ] Mascot peek → penguin sticker
-- [ ] Style tile for the owner
-- [ ] DESIGN_SYSTEM.md rebranded
+- [x] tokens.css palette (sky/gold/logo-pink, cool paper, navy ink, navy shadows); admin.css colours; theme-color + critical loader CSS
+- [x] Sprite: `#pg-penguin` (after the logo's penguin), `#star`, `#drop`, `#ripple`, `#shell`; kept `#spark`, `#heart` (no `--` in comments; XML valid)
+- [x] `.cl*` → `.pg` sticker classes + variants; clover markup/classes replaced (nav star dot, penguin meter, ripple stage, penguin mascot peek/state notes); `--shell-mask`
+- [x] Loader spinner: two 4-point stars, rays light up gold with progress, still penguin in the centre (static markup + `spinner.js`)
+- [x] Sparkles pools (gold/sky sparks, pink heart, star, drop); favicon = flat penguin SVG/PNGs; unused clover/divider SVG outputs dropped
+- [x] DESIGN_SYSTEM.md rebranded; PERFORMANCE_PLAN.md marked as the Kotoha reference
+- [x] `scripts/perf/cdp.js` + `shots.js` (headless Chrome screenshots per section; started early for visual checks)
+- [ ] Style tile ✋ → shown to the owner as real-page screenshots after Phase 3 (art)
 
 ### Phase 3 — Art
 - [ ] `optimize-images.js` mapping + focal points; logo trim; UI images; OG image
@@ -126,7 +126,7 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 
 ## 6. CURRENT FOCUS / NEXT ACTION
 
-Phase 2: palette tokens → sprite symbols → replace clover uses → spinner → style tile.
+Phase 3: optimize-images mapping (bg6 home, bg7 about, bg4 news, bg2 disco, bg1 gallery, loaders bg5/bg2/bg1), logo trim, srcsets, accents, gallery seed list; then screenshots for the owner.
 
 ---
 

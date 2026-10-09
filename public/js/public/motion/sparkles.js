@@ -1,4 +1,4 @@
-// Cursor sparkle trail (desktop mouse only, subtle): a small pool of illustrated sparkles, hearts and clovers
+// Cursor sparkle trail (desktop mouse only, subtle): a small pool of illustrated sparkles, hearts, stars and drops
 // (from the v2 SVG sprite) that fade behind the pointer. Off on touch devices and in calm mode. Decorative only.
 import { isCalm } from './prefs.js';
 
@@ -6,12 +6,12 @@ const NS = 'http://www.w3.org/2000/svg';
 const SPRITE = '/assets/svg/v2-sprite.svg';
 // [symbol, colour custom properties]
 const SHAPES = [
-  ['spark', { '--c1': '#fff2b3', '--c2': '#e0a92e' }],
-  ['spark', { '--c1': '#ffd0de', '--c2': '#ef5f8d' }],
-  ['spark', { '--c1': '#ffffff', '--c2': '#a98be6' }],
-  ['heart', { '--c1': '#ef5f8d' }],
-  ['cl-leaf', { '--c1': '#5ea73a', '--c2': '#8fd16b', '--c3': '#dcf3c9', '--c4': '#2f7a1f' }],
-  ['cl-leaf', { '--c1': '#ec6a95', '--c2': '#ffa5c2', '--c3': '#ffe3ec', '--c4': '#b8325f' }],
+  ['spark', { '--c1': '#fff2b3', '--c2': '#f2b632' }],
+  ['spark', { '--c1': '#eaf4ff', '--c2': '#4a90d9' }],
+  ['spark', { '--c1': '#ffffff', '--c2': '#79b5ff' }],
+  ['heart', { '--c1': '#f898c0' }],
+  ['star', { '--c1': '#f6bf3a', '--c2': '#ffe08a', '--c3': '#fff6d6', '--c4': '#a35f00' }],
+  ['drop', { '--c1': '#79b5ff', '--c2': '#cde4f6', '--c3': '#f3f9fe', '--c4': '#1f5e9e' }],
 ];
 
 export function startSparkles({ perShape = 4, every = 42 } = {}) {
@@ -45,7 +45,7 @@ export function startSparkles({ perShape = 4, every = 42 } = {}) {
     const pool = pools[Math.floor(Math.random() * pools.length)];
     const s = pool.items[pool.next];
     pool.next = (pool.next + 1) % pool.items.length;
-    const size = pool.symbol === 'cl-leaf' ? 12 + Math.random() * 6 : 10 + Math.random() * 8;
+    const size = pool.symbol === 'star' || pool.symbol === 'drop' ? 12 + Math.random() * 6 : 10 + Math.random() * 8;
     const x = e.clientX - size / 2;
     const y = e.clientY - size / 2;
     const dx = (Math.random() - 0.5) * 36;

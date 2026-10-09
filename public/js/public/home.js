@@ -35,7 +35,7 @@ export function renderWeek(list) {
       el('span', { text: name }),
       el('span', { class: 'week__date', text: String(d.getUTCDate()) }),
       el('span', { class: 'week__tag', text: stream ? (today && live ? t('home.live').replace(/[!！]$/, '') : '21:00') : '' }),
-      stream ? sprite('cl-leaf', 'cl') : null,
+      stream ? sprite('pg-penguin', 'pg') : null,
     ]);
   }));
 }
@@ -47,13 +47,13 @@ export function renderSoon(release, mini, wide) {
   const days = daysUntil(release.releasedOn);
   mini.replaceChildren(
     el('span', { class: 'tape tape--right' }),
-    el('span', { class: 'sticker sticker--sm sticker--pink soon__label', text: t('discography.comingSoon') }),
+    el('span', { class: 'sticker sticker--sm sticker--gold soon__label', text: t('discography.comingSoon') }),
     el('p', { class: 'soon__title', text: release.title }),
     el('p', { class: 'soon__count', text: `${t('discography.inDays', { n: days })} · ${formatDate(release.releasedOn)}` }),
   );
   wide.replaceChildren(
     el('span', { class: 'tape' }),
-    el('span', { class: 'sticker sticker--pink soon__label', text: t('discography.comingSoon') }),
+    el('span', { class: 'sticker sticker--gold soon__label', text: t('discography.comingSoon') }),
     el('div', {}, [
       el('p', { class: 'soon__title', text: release.title }),
       release.note ? el('p', { class: 'ink-soft', text: release.note }) : null,
@@ -72,7 +72,7 @@ export function renderFanArt(box, images) {
   box.replaceChildren(
     el('img', { src: cloudinaryUrl(pick.url, 240), alt: t('gallery.alt', { name: pick.authorName }), width: 96, height: 96, loading: 'lazy' }),
     el('div', {}, [
-      el('p', { class: 'mini-title' }, [sprite('cl-leaf', 'cl cl--gold'), el('span', { class: 'mini-title__en', text: t('home.fanArtTitle') })]),
+      el('p', { class: 'mini-title' }, [sprite('shell', 'pg pg--gold'), el('span', { class: 'mini-title__en', text: t('home.fanArtTitle') })]),
       el('p', { class: 'ink-soft', text: t('home.fanArtBy', { name: pick.authorName }) }),
       el('a', { class: 'chip', href: '#gallery', 'data-nav-link': 'gallery', text: t('home.seeGallery') }),
     ]),

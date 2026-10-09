@@ -1,7 +1,7 @@
 // Builds web-ready images in public/assets from the untouched originals in assets/.
 //   * backgrounds → WebP landscape widths + portrait (9:16) crops centred on a focal point
 //   * UI images   → WebP at 1x/2x widths (alpha kept)
-//   * vector      → clover fill/outline, divider tile, favicon (SVG)
+//   * vector      → favicon (SVG penguin) + PNG favicons
 //   * favicon PNGs + Open Graph share image
 // Usage: npm run images:optimize            (skips files that already exist)
 //        npm run images:optimize -- --force (rebuild everything)
@@ -52,12 +52,23 @@ const UI_IMAGES = [
   { name: 'icon-twitcasting', file: 'icons/twitcasting.png', widths: [96] },
 ];
 
-const CLOVER_PATH = 'M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z';
-const cloverSvg = ({ fill, stroke = '#63A23D', width = 10 }) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="15 30 545 545"><path d="${CLOVER_PATH}" fill="${fill}" stroke="${stroke}" stroke-width="${width}" stroke-linejoin="round"/></svg>\n`;
-// Two scallops per tile (tiles seamlessly with background-repeat: repeat-x)
-const DIVIDER_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 78" width="165" height="78" preserveAspectRatio="none"><path d="M0 0H82.5V37A41.25 41.25 0 0 1 0 37Z" fill="#67AD55"/><path d="M82.5 0H165V37A41.25 41.25 0 0 1 82.5 37Z" fill="#A1CBA0"/></svg>\n`;
-const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="15 30 545 545"><path d="${CLOVER_PATH}" fill="#ffffff" stroke="#63A23D" stroke-width="44" stroke-linejoin="round"/><path d="${CLOVER_PATH}" fill="#7bb54c" transform="translate(150 150) scale(0.5)"/></svg>\n`;
+// Favicon: the site's penguin sticker, flattened to fixed colours (no CSS variables, no <use>) so every renderer draws it
+const PENGUIN = [
+  '<g fill="#fff" stroke="#fff" stroke-width="10" stroke-linejoin="round">',
+  '<path d="M0 -40 C 22 -40 36 -24 36 0 C 36 24 26 42 0 42 C -26 42 -36 24 -36 0 C -36 -24 -22 -40 0 -40 Z"/>',
+  '<path d="M-32 2 C -44 7 -47 21 -41 29 C -36 25 -31 17 -29 10 Z"/><path d="M32 2 C 44 7 47 21 41 29 C 36 25 31 17 29 10 Z"/>',
+  '<ellipse cx="-13" cy="42" rx="10" ry="5"/><ellipse cx="13" cy="42" rx="10" ry="5"/></g>',
+  '<ellipse cx="-13" cy="42" rx="10" ry="5" fill="#ffc53d"/><ellipse cx="13" cy="42" rx="10" ry="5" fill="#ffc53d"/>',
+  '<path d="M-32 2 C -44 7 -47 21 -41 29 C -36 25 -31 17 -29 10 Z" fill="#3b82e0"/><path d="M32 2 C 44 7 47 21 41 29 C 36 25 31 17 29 10 Z" fill="#3b82e0"/>',
+  '<path d="M0 -40 C 22 -40 36 -24 36 0 C 36 24 26 42 0 42 C -26 42 -36 24 -36 0 C -36 -24 -22 -40 0 -40 Z" fill="#4f97f5"/>',
+  '<path d="M0 -18 C -5 -27 -24 -28 -27 -10 C -30 6 -18 18 0 19 C 18 18 30 6 27 -10 C 24 -28 5 -27 0 -18 Z" fill="#fff"/>',
+  '<ellipse cx="0" cy="31" rx="19" ry="10" fill="#fff"/>',
+  '<circle cx="-10" cy="-4" r="4.6" fill="#1d3b66"/><circle cx="10" cy="-4" r="4.6" fill="#1d3b66"/>',
+  '<ellipse cx="-18" cy="5" rx="5" ry="3.2" fill="#ffb8cf"/><ellipse cx="18" cy="5" rx="5" ry="3.2" fill="#ffb8cf"/>',
+  '<ellipse cx="0" cy="3.5" rx="6.5" ry="4.3" fill="#ffc53d"/>',
+  '<path d="M0 21 L-10 15.5 C -12 19 -12 23 -10 26.5 Z M0 21 L10 15.5 C 12 19 12 23 10 26.5 Z" fill="#ff8fb8"/><circle cx="0" cy="21" r="3" fill="#ff8fb8"/>',
+].join('');
+const FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -48 100 100">${PENGUIN}</svg>\n`;
 
 async function backgrounds() {
   for (const bg of BACKGROUNDS) {
@@ -92,14 +103,11 @@ async function uiImages() {
 }
 
 async function vectors() {
-  await emit(out('svg/clover-fill.svg'), (f) => writeFile(f, cloverSvg({ fill: '#ffffff' })));
-  await emit(out('svg/clover-outline.svg'), (f) => writeFile(f, cloverSvg({ fill: 'none' })));
-  await emit(out('svg/divider.svg'), (f) => writeFile(f, DIVIDER_SVG));
   await emit(path.join(root, 'public', 'favicon.svg'), (f) => writeFile(f, FAVICON_SVG));
   await emit(path.join(root, 'public', 'favicon-32.png'), (f) => sharp(Buffer.from(FAVICON_SVG)).resize(32, 32).png().toFile(f));
   await emit(path.join(root, 'public', 'apple-touch-icon.png'), (f) =>
-    sharp(Buffer.from(FAVICON_SVG)).resize(160, 160).extend({ top: 10, bottom: 10, left: 10, right: 10, background: '#fe9fb9' })
-      .flatten({ background: '#fe9fb9' }).png().toFile(f));
+    sharp(Buffer.from(FAVICON_SVG)).resize(160, 160).extend({ top: 10, bottom: 10, left: 10, right: 10, background: '#b7d7ef' })
+      .flatten({ background: '#b7d7ef' }).png().toFile(f));
 }
 
 async function ogImage() {

@@ -1,10 +1,10 @@
 /* Hanon fan site — design system v2 · tokens
-   Clover Scrapbook: paper notes taped onto fan art, die-cut stickers, stitches for featured items.
+   Sazanami Scrapbook: paper notes taped onto fan art, die-cut stickers, stitches for featured items.
    Load this file FIRST: it fixes the cascade-layer order for every v2 stylesheet. */
 
 @layer legacy, tokens, base, components, sections, motion;
 
-/* Registered properties can be animated smoothly (iris reveal, loader progress, clover fill). */
+/* Registered properties can be animated smoothly (iris reveal, loader progress, penguin meter fill). */
 @property --iris {
   syntax: '<length>';
   inherits: false;
@@ -18,33 +18,34 @@
 
 @layer tokens {
   :root {
-    /* ---- colour: brand scales */
-    --pink-50: #fff5f8;
-    --pink-100: #ffe2eb;
-    --pink-200: #ffc6d6;
-    --pink-300: #fe9fb9;   /* brand base (the site's persistent background) */
-    --pink-500: #ef5f8d;
-    --pink-700: #b8325f;   /* AA as text on light, and white text on it */
-    --green-50: #f2f9ec;
-    --green-100: #dcefcb;
-    --green-200: #bfe0a5;
-    --green-300: #a3d37f;
-    --green-500: #63a23d;  /* brand green */
-    --green-600: #4e8a2c;
-    --green-700: #2f7a1f;  /* AA as text on light, and white text on it */
-    --green-900: #1f4f15;
-    --paper: #fffaf2;
-    --paper-rgb: 255 250 242;
-    --ink: #2b3326;
-    --ink-soft: #56614f;
+    /* ---- colour: brand scales (Hanon blue + penguin gold; contrast ratios in FORHANON.md §5.2) */
+    --sky-50: #f3f9fe;
+    --sky-100: #e2f0fb;    /* footer / soft panels */
+    --sky-200: #cde4f6;    /* highlights, soft rings */
+    --sky-300: #b7d7ef;    /* brand base: Hanon's image colour (the site's persistent background) */
+    --sky-400: #79b5ff;    /* bright brand blue (decorative fills) */
+    --sky-500: #4a90d9;    /* mid blue (title fills, dashes, borders) */
+    --sky-600: #3576bd;    /* white text on it 4.7 : 1 */
+    --sky-700: #1f5e9e;    /* buttons, links, stickers: white on it 6.7 : 1, as text on paper 6.4 : 1 */
+    --sky-900: #163f6b;    /* hover / darkest */
+    --gold-100: #fff3c4;   /* penguin-beak tint */
+    --gold-300: #ffd66b;   /* penguin gold (stars, sparkles) */
+    --gold-500: #f2b632;   /* stronger gold (decorative) */
+    --gold-600: #c27a0c;   /* white large text on it 3.4 : 1 */
+    --gold-700: #a35f00;   /* warm accent: NEW stamp, ribbons, active link; white on it 5.0 : 1 */
+    --logo-pink: #f898c0;  /* the pink in her name logo and hair tips: decorative touches only, never text */
+    --paper: #f7fbff;      /* cool white cards */
+    --paper-rgb: 247 251 255;
+    --ink: #22324a;
+    --ink-soft: #4a5b72;
     --white: #fff;
 
     /* ---- colour: section accents (picked from each section's artwork) */
-    --accent-home: #c9b6f4;
-    --accent-about: #bfe4ff;
-    --accent-news: #ffb3c7;
-    --accent-disco: #ffd3b0;
-    --accent-gallery: #c8ecd9;
+    --accent-home: #cdc3f5;     /* placeholders until picked from the artworks (Phase 3) */
+    --accent-about: #bdeef0;
+    --accent-news: #fff0a8;
+    --accent-disco: #ffc4b8;
+    --accent-gallery: #c9efdc;
     --accent: var(--accent-home);          /* each section overrides this */
 
     /* ---- type */
@@ -80,11 +81,11 @@
     --r-panel: 28px;
     --r-pill: 999px;
 
-    /* ---- depth (shadows tinted towards the pink/green palette, never grey-black) */
-    --shadow-paper: 0 1px 0 rgb(255 255 255 / 0.85) inset, 0 12px 26px -16px rgb(122 52 80 / 0.42), 0 2px 6px -2px rgb(122 52 80 / 0.16);
-    --shadow-lift: 0 22px 42px -20px rgb(122 52 80 / 0.5), 0 6px 14px -6px rgb(122 52 80 / 0.24);
-    --shadow-modal: 0 34px 90px -24px rgb(58 24 44 / 0.6);
-    --shadow-sticker: 0 3px 0 rgb(31 79 21 / 0.22), 0 10px 20px -10px rgb(31 79 21 / 0.55);
+    /* ---- depth (shadows tinted towards navy/blue, never grey-black) */
+    --shadow-paper: 0 1px 0 rgb(255 255 255 / 0.85) inset, 0 12px 26px -16px rgb(31 63 107 / 0.42), 0 2px 6px -2px rgb(31 63 107 / 0.16);
+    --shadow-lift: 0 22px 42px -20px rgb(31 63 107 / 0.5), 0 6px 14px -6px rgb(31 63 107 / 0.24);
+    --shadow-modal: 0 34px 90px -24px rgb(16 36 64 / 0.6);
+    --shadow-sticker: 0 3px 0 rgb(22 63 107 / 0.22), 0 10px 20px -10px rgb(22 63 107 / 0.55);
 
     /* ---- motion (one internal tempo: 128 BPM → 1 beat = 469 ms) */
     --beat: 469ms;
@@ -98,6 +99,6 @@
     --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
 
     /* ---- misc */
-    --focus-ring: 0 0 0 3px var(--white), 0 0 0 6px var(--pink-700);
+    --focus-ring: 0 0 0 3px var(--white), 0 0 0 6px var(--gold-700);
   }
 }

@@ -66,12 +66,12 @@ function renderFooterCredits() {
   Object.values(CREDITS).forEach((c) => { if (c) add(c.handle, c.url); else anyUnknown = true; });
   state.galleryItems.forEach((g) => add(g.authorName, g.sourceUrl));
   const rows = [...people.values()].map(({ name, url }) => el('li', {}, [
-    sprite('cl-leaf', 'cl cl--pink'),
+    sprite('pg-penguin', 'pg pg--pink'),
     url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer', text: name, 'data-track': 'gallery_credit_click', 'data-track-type': 'gallery' }) : el('span', { text: name }),
   ]));
-  rows.push(el('li', {}, [sprite('cl-leaf', 'cl'), el('span', { text: `${t('credits.model')}: © AiceClass` })]));
-  rows.push(el('li', {}, [sprite('cl-leaf', 'cl'), el('span', { text: t('credits.design') })]));
-  if (anyUnknown) rows.push(el('li', {}, [sprite('cl-leaf', 'cl cl--gold'), el('span', { text: t('common.artUnknown') })]));
+  rows.push(el('li', {}, [sprite('pg-penguin', 'pg pg--navy'), el('span', { text: `${t('credits.model')}: © AiceClass` })]));
+  rows.push(el('li', {}, [sprite('pg-penguin', 'pg pg--navy'), el('span', { text: t('credits.design') })]));
+  if (anyUnknown) rows.push(el('li', {}, [sprite('pg-penguin', 'pg pg--gold'), el('span', { text: t('common.artUnknown') })]));
   $('#foot-credits').replaceChildren(...rows);
 }
 
@@ -296,7 +296,7 @@ async function boot() {
     ],
     tier2: [
       ...['about', 'news', 'discography', 'gallery'].map((n) => () => decodeImage($(`img[data-bg="${n}"]`))),
-      () => decodeImage($('.clover-stage__pose img')),
+      () => decodeImage($('.ripple-stage__pose img')),
       () => decodeImage($('.profile__avatar')),
       () => newsList.load(),
       () => videosList.load(),

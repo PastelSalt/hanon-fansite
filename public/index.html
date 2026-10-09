@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Hanon Fan Site 🐧</title>
   <meta name="description" content="An unofficial fan site for Hanon (はのん), vocalist of HaKoniwalily and StellaPhizz — latest works, news, discography and fan art.">
-  <meta name="theme-color" content="#fe9fb9">
+  <meta name="theme-color" content="#b7d7ef">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -23,12 +23,12 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" href="/assets/img/logo-500.webp" as="image" type="image/webp">
 
-  <!-- Critical loader styles: the pink loader must paint before anything else loads, and it fades away on its own
-       after 12 s even if no script ever runs (the clovers keep turning meanwhile: pure CSS). -->
+  <!-- Critical loader styles: the blue loader must paint before anything else loads, and it fades away on its own
+       after 12 s even if no script ever runs (the stars keep turning meanwhile: pure CSS). -->
   <style>
-    html { background: #fe9fb9; }
+    html { background: #b7d7ef; }
     body { margin: 0; }
-    .loader { position: fixed; inset: 0; z-index: 1000; background: #fe9fb9; overflow: hidden;
+    .loader { position: fixed; inset: 0; z-index: 1000; background: #b7d7ef; overflow: hidden;
               font-family: 'Fredoka', 'M PLUS Rounded 1c', system-ui, sans-serif;
               animation: loader-failsafe 0.6s ease 12s forwards; }
     .loader.is-done { animation: none; }
@@ -68,30 +68,30 @@
     <div class="loader__art" aria-hidden="true"></div>
     <div class="loader__scrim"></div>
     <div class="deco" aria-hidden="true">
-      <svg class="cl float" style="--d: .4; left: 8%; top: 12%; width: 34px; height: 34px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
-      <svg class="cl cl--pink float" style="--d: 1.3; left: 88%; top: 16%; width: 28px; height: 28px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      <svg class="pg pg--gold float" style="--d: .4; left: 8%; top: 12%; width: 34px; height: 34px"><use href="/assets/svg/v2-sprite.svg#star"/></svg>
+      <svg class="pg float" style="--d: 1.3; left: 88%; top: 16%; width: 28px; height: 28px"><use href="/assets/svg/v2-sprite.svg#drop"/></svg>
       <svg class="spark spark--gold twinkle" style="--d: .8; left: 78%; top: 70%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
       <svg class="spark spark--pink twinkle" style="--d: 1.5; left: 14%; top: 44%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
     </div>
     <img class="loader__logo" src="/assets/img/logo-500.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 900px) 30vw, 80vw" alt="Hanon" width="1000" height="288">
     <div class="loader__status">
-      <div class="clover-spinner" id="loader-spinner" aria-hidden="true">
-        <svg class="clover-spinner__outer" viewBox="15 30 545 545" focusable="false">
-          <path class="c-outer" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/>
-          <path class="c-outer-shade" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z" transform="translate(286.5 301) scale(0.8) translate(-286.5 -301)"/>
+      <div class="star-spinner" id="loader-spinner" aria-hidden="true">
+        <svg class="star-spinner__outer" viewBox="-52 -52 104 104" focusable="false">
+          <path class="s-outer" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/>
+          <path class="s-outer-shade" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z" transform="scale(0.72)"/>
         </svg>
-        <svg class="clover-spinner__inner" viewBox="15 30 545 545" focusable="false">
-          <defs><clipPath id="loader-clip"><path d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/></clipPath></defs>
-          <path class="c-inner-bg" d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z"/>
+        <svg class="star-spinner__inner" viewBox="-52 -52 104 104" focusable="false">
+          <defs><clipPath id="loader-clip"><path d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/></clipPath></defs>
+          <path class="s-inner-bg" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/>
           <g clip-path="url(#loader-clip)">
-            <rect class="petal" x="15" y="30" width="271.5" height="271"/>
-            <rect class="petal" x="286.5" y="30" width="273.5" height="271"/>
-            <rect class="petal" x="286.5" y="301" width="273.5" height="274"/>
-            <rect class="petal" x="15" y="301" width="271.5" height="274"/>
+            <path class="ray" d="M0 0 L-52 -52 L52 -52 Z"/>
+            <path class="ray" d="M0 0 L52 -52 L52 52 Z"/>
+            <path class="ray" d="M0 0 L52 52 L-52 52 Z"/>
+            <path class="ray" d="M0 0 L-52 52 L-52 -52 Z"/>
           </g>
-          <ellipse class="c-inner-gloss" cx="185" cy="170" rx="44" ry="72" transform="rotate(-40 185 170)"/>
-          <circle class="c-centre" cx="286.5" cy="301" r="34"/>
+          <ellipse class="s-inner-gloss" cx="-5" cy="-16" rx="3" ry="8" transform="rotate(-20 -5 -16)"/>
         </svg>
+        <svg class="star-spinner__penguin pg" viewBox="-52 -52 104 104" focusable="false"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
       </div>
       <p class="loader__text" id="loader-text">Loading…</p>
       <p class="loader__fact paper" id="loader-fact"></p>
@@ -123,18 +123,18 @@
         <li><a href="#news" data-nav-link="news" data-i18n="nav.news">news</a></li>
         <li><a href="#discography" data-nav-link="discography" data-i18n="nav.discography">discography</a></li>
         <li><a href="#gallery" data-nav-link="gallery" data-i18n="nav.gallery">gallery</a></li>
-        <li class="nav-pill__dot" aria-hidden="true"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></li>
+        <li class="nav-pill__dot" aria-hidden="true"><svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg></li>
       </ul>
-      <span class="clover-meter" id="nav-progress" aria-hidden="true">
-        <svg class="cl clover-meter__base"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
-        <svg class="cl clover-meter__fill"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+      <span class="pg-meter" id="nav-progress" aria-hidden="true">
+        <svg class="pg pg-meter__base"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
+        <svg class="pg pg-meter__fill"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
       </span>
       <div class="lang-pill" data-lang-switch data-active="en"></div>
       <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
-        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+        <svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span data-motion-label>Motion on</span>
       </button>
       <button class="menu-btn nav-pill__menu" type="button" data-menu-open aria-controls="mobile-menu" aria-expanded="false">
-        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-i18n="common.menu">menu</span>
+        <svg class="pg pg--white" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span data-i18n="common.menu">menu</span>
       </button>
     </nav>
   </header>
@@ -156,7 +156,7 @@
     <div class="mobile-menu__row">
       <div class="lang-pill" data-lang-switch data-active="en"></div>
       <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
-        <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+        <svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span data-motion-label>Motion on</span>
       </button>
     </div>
     <div class="mobile-menu__credit">
@@ -175,9 +175,9 @@
 
       <!-- decorations around the character -->
       <div class="deco" aria-hidden="true">
-        <svg class="cl deco-parallax float" style="--d: 0; left: 44%; top: 16%; width: 38px; height: 38px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
-        <svg class="cl cl--pink float" style="--d: 1.2; left: 60%; top: 74%; width: 30px; height: 30px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
-        <svg class="cl cl--gold float" style="--d: 0.6; left: 64%; top: 22%; width: 24px; height: 24px"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="pg deco-parallax float" style="--d: 0; left: 44%; top: 16%; width: 38px; height: 38px"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
+        <svg class="pg float" style="--d: 1.2; left: 60%; top: 74%; width: 30px; height: 30px"><use href="/assets/svg/v2-sprite.svg#drop"/></svg>
+        <svg class="pg pg--gold float" style="--d: 0.6; left: 64%; top: 22%; width: 24px; height: 24px"><use href="/assets/svg/v2-sprite.svg#star"/></svg>
         <svg class="spark spark--gold twinkle" style="--d: 0.2; left: 41%; top: 42%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
         <svg class="spark spark--pink twinkle" style="--d: 1; left: 66%; top: 50%; width: 24px; height: 24px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
         <svg class="spark twinkle" style="--d: 1.6; left: 52%; top: 88%"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
@@ -188,7 +188,7 @@
         <div class="home-comp__left">
           <div class="home-brand">
             <img class="home-brand__logo reveal-pop" src="/assets/img/logo-1000.webp" srcset="/assets/img/logo-500.webp 500w, /assets/img/logo-1000.webp 1000w" sizes="(min-width: 1100px) 460px, 90vw" alt="Hanon" width="1000" height="288">
-            <p class="home-brand__tag"><span class="label-chip"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>HaKoniwalily</span><span class="label-chip">StellaPhizz</span><span class="label-chip" data-i18n="home.unitHoney">HoneyWorks guest vocal</span><span class="label-chip" data-i18n="home.unitVtuber">Singer · VTuber</span></p>
+            <p class="home-brand__tag"><span class="label-chip"><svg class="pg" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>HaKoniwalily</span><span class="label-chip">StellaPhizz</span><span class="label-chip" data-i18n="home.unitHoney">HoneyWorks guest vocal</span><span class="label-chip" data-i18n="home.unitVtuber">Singer · VTuber</span></p>
           </div>
           <ul class="socials reveal" data-socials data-i18n-attr="aria-label:a11y.socials" aria-label="Hanon's official channels"></ul>
           <div class="home-stream reveal">
@@ -214,7 +214,7 @@
 
         <div class="home-comp__right">
           <header class="mini-title reveal">
-            <svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+            <svg class="pg" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
             <span class="mini-title__en">LATEST NEWS</span><span class="mini-title__ja" lang="ja">最新情報</span>
           </header>
           <div class="home-notes" id="home-news" data-state="loading"></div>
@@ -228,7 +228,7 @@
 
       <div class="badge-round home-badge" aria-hidden="true">
         <svg class="badge-round__text" viewBox="0 0 120 120"><defs><path id="badge-path" d="M60 60 m -45 0 a 45 45 0 1 1 90 0 a 45 45 0 1 1 -90 0"/></defs><text><textPath href="#badge-path">HANON ✦ FAN SITE ✦ はのん ✦ HANOMEN ✦</textPath></text></svg>
-        <svg class="cl cl--pink"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg>
+        <svg class="pg"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
       </div>
       <a class="scroll-cue bob" href="#about" data-i18n-attr="aria-label:a11y.scrollNext" aria-label="Go to the next section"><span data-i18n="common.scrollMore">scroll for more!</span> ✦</a>
 
@@ -244,11 +244,11 @@
     <section class="scene" id="about" data-section="about" data-art="about" data-accent="about" aria-labelledby="about-title">
       <div class="scrim scrim--soft" aria-hidden="true"></div>
       <span class="bg-word" aria-hidden="true" style="right: -2%; bottom: 4%">PROFILE</span>
-      <p class="v-text v-text--green" lang="ja" aria-hidden="true" style="right: 1.5%; top: 18%">はのんってどんな人？</p>
+      <p class="v-text v-text--blue" lang="ja" aria-hidden="true" style="right: 1.5%; top: 18%">はのんってどんな人？</p>
       <div class="scene__inner">
         <header class="sec-title reveal">
           <span class="sec-title__num"><small>NO.</small>01</span>
-          <h2 class="sec-title__en" id="about-title"><span data-i18n="about.heading">ABOUT</span> <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <h2 class="sec-title__en" id="about-title"><span data-i18n="about.heading">ABOUT</span> <svg class="pg" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg></h2>
           <p class="sec-title__ja" lang="ja">プロフィール</p>
           <span class="sec-title__line" aria-hidden="true"></span>
         </header>
@@ -273,22 +273,23 @@
               <p data-i18n="about.bio2"></p>
             </div>
             <div class="paper about-tags reveal">
-              <p class="about-tags__title"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg> <span data-i18n="about.hashtags">Hashtags</span></p>
+              <p class="about-tags__title"><svg class="pg pg--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#heart"/></svg> <span data-i18n="about.hashtags">Hashtags</span></p>
               <p class="chips" id="about-tags"></p>
             </div>
           </div>
-          <div class="clover-stage reveal">
-            <svg class="cl cl--sky clover-stage__clover" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-round"/></svg>
-            <button class="clover-stage__pose drift" type="button" data-pose data-i18n-attr="aria-label:about.tapHint" aria-label="Tap Hanon!">
+          <div class="ripple-stage reveal">
+            <svg class="pg pg--pale ripple-stage__star" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg>
+            <svg class="pg ripple-stage__ring" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#ripple"/></svg>
+            <button class="ripple-stage__pose drift" type="button" data-pose data-i18n-attr="aria-label:about.tapHint" aria-label="Tap Hanon!">
               <img src="/assets/img/pose-450.webp" srcset="/assets/img/pose-450.webp 450w, /assets/img/pose-900.webp 900w" sizes="(min-width: 900px) 300px, 60vw" alt="Hanon's official full-body model, standing" data-i18n-attr="alt:about.poseAlt" width="1339" height="2400" loading="lazy" decoding="async">
             </button>
             <svg class="spark spark--gold twinkle" aria-hidden="true" style="--d: .3; position: absolute; left: 8%; top: 12%; width: 26px; height: 26px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
             <svg class="spark spark--pink twinkle" aria-hidden="true" style="--d: 1.1; position: absolute; right: 6%; top: 30%; width: 20px; height: 20px"><use href="/assets/svg/v2-sprite.svg#spark"/></svg>
-            <span class="bubble bubble--left clover-stage__bubble" data-i18n="about.fanMark">fan mark 🐧</span>
+            <span class="bubble bubble--left ripple-stage__bubble" data-i18n="about.fanMark">fan mark 🐧</span>
           </div>
         </div>
       </div>
-      <img class="mascot-peek deco-parallax" src="/assets/img/mascot-front-240.webp" alt="" width="240" height="204" style="right: 4%; bottom: -6px">
+      <svg class="pg mascot-peek deco-parallax" aria-hidden="true" style="right: 4%; bottom: -6px"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg>
     </section>
 
     <!-- =================================================================== 02 NEWS -->
@@ -299,14 +300,14 @@
       <div class="scene__inner">
         <header class="sec-title reveal">
           <span class="sec-title__num"><small>NO.</small>02</span>
-          <h2 class="sec-title__en" id="news-title"><span data-i18n="news.heading">NEWS</span> <svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <h2 class="sec-title__en" id="news-title"><span data-i18n="news.heading">NEWS</span> <svg class="pg pg--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg></h2>
           <p class="sec-title__ja" lang="ja">ニュース</p>
           <span class="sec-title__line" aria-hidden="true"></span>
         </header>
         <div class="news-comp">
           <div class="news-list" id="news-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:news.title" aria-label="News on Hanon"></div>
           <div class="news-side">
-            <p class="mini-title reveal"><svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en">LATEST WORKS</span><span class="mini-title__ja" lang="ja">最新作</span></p>
+            <p class="mini-title reveal"><svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg><span class="mini-title__en">LATEST WORKS</span><span class="mini-title__ja" lang="ja">最新作</span></p>
             <div id="news-player" class="reveal" data-state="loading"></div>
             <div class="film reveal" id="video-list" tabindex="0" data-i18n-attr="aria-label:video.list" aria-label="More works"></div>
           </div>
@@ -318,11 +319,11 @@
     <section class="scene" id="discography" data-section="discography" data-art="discography" data-accent="disco" aria-labelledby="disco-title">
       <div class="scrim scrim--soft" aria-hidden="true"></div>
       <span class="bg-word" aria-hidden="true" style="right: -3%; top: 12%">MUSIC</span>
-      <p class="v-text v-text--green" lang="ja" aria-hidden="true" style="left: 1.2%; bottom: 10%">さざなみのように癒す歌声</p>
+      <p class="v-text v-text--blue" lang="ja" aria-hidden="true" style="left: 1.2%; bottom: 10%">さざなみのように癒す歌声</p>
       <div class="scene__inner">
         <header class="sec-title reveal">
           <span class="sec-title__num"><small>NO.</small>03</span>
-          <h2 class="sec-title__en" id="disco-title"><span data-i18n="discography.heading">DISCOGRAPHY</span> <svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <h2 class="sec-title__en" id="disco-title"><span data-i18n="discography.heading">DISCOGRAPHY</span> <svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg></h2>
           <p class="sec-title__ja" lang="ja">ディスコグラフィ・実績</p>
           <span class="sec-title__line" aria-hidden="true"></span>
         </header>
@@ -332,7 +333,7 @@
             <div class="sleeves" id="disco-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:discography.title" aria-label="Discography"></div>
           </div>
           <div class="paper paper--panel reveal">
-            <p class="mini-title"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en">ACHIEVEMENTS</span><span class="mini-title__ja" lang="ja">実績</span></p>
+            <p class="mini-title"><svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span class="mini-title__en">ACHIEVEMENTS</span><span class="mini-title__ja" lang="ja">実績</span></p>
             <ol class="timeline" id="achievements-list" tabindex="0" data-state="loading" data-i18n-attr="aria-label:discography.achievements" aria-label="Achievements"></ol>
           </div>
         </div>
@@ -347,7 +348,7 @@
       <div class="scene__inner">
         <header class="sec-title reveal">
           <span class="sec-title__num"><small>NO.</small>04</span>
-          <h2 class="sec-title__en" id="gallery-title"><span data-i18n="gallery.heading">GALLERY</span> <svg class="cl cl--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg></h2>
+          <h2 class="sec-title__en" id="gallery-title"><span data-i18n="gallery.heading">GALLERY</span> <svg class="pg pg--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg></h2>
           <p class="sec-title__ja" lang="ja">ファンアート</p>
           <span class="sec-title__line" aria-hidden="true"></span>
         </header>
@@ -372,7 +373,7 @@
           <a id="contact-mail" href="#contact" data-user="moekosoftware" data-domain="outlook.com">moekosoftware [at] outlook.com</a></p>
       </div>
       <nav data-i18n-attr="aria-label:footer.sections" aria-label="Sections">
-        <p class="mini-title"><svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.sections">Sections</span></p>
+        <p class="mini-title"><svg class="pg" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg><span class="mini-title__en" data-i18n="footer.sections">Sections</span></p>
         <ul class="foot__links">
           <li><a href="#home" data-nav-link="home" data-i18n="nav.home">home</a></li>
           <li><a href="#about" data-nav-link="about" data-i18n="nav.about">about</a></li>
@@ -383,17 +384,17 @@
         <p class="foot__privacy" data-i18n="footer.privacy">This site counts visits anonymously (no cookies, no personal data).</p>
       </nav>
       <div>
-        <p class="mini-title"><svg class="cl cl--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.official">Official links</span></p>
+        <p class="mini-title"><svg class="pg pg--pink" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#pg-penguin"/></svg><span class="mini-title__en" data-i18n="footer.official">Official links</span></p>
         <ul class="socials socials--stack" id="footer-links"></ul>
       </div>
       <div>
-        <p class="mini-title"><svg class="cl cl--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.credits">Artwork credits</span></p>
+        <p class="mini-title"><svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#shell"/></svg><span class="mini-title__en" data-i18n="footer.credits">Artwork credits</span></p>
         <ul class="foot__credits" id="foot-credits"></ul>
-        <p class="mini-title" style="margin-top: var(--s-5)"><svg class="cl cl--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span class="mini-title__en" data-i18n="footer.settings">Settings</span></p>
+        <p class="mini-title" style="margin-top: var(--s-5)"><svg class="pg pg--mint" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span class="mini-title__en" data-i18n="footer.settings">Settings</span></p>
         <div class="pieces">
           <div class="lang-pill" data-lang-switch data-active="en"></div>
           <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true" data-i18n-attr="data-label-on:motion.on;data-label-off:motion.off;data-label-device:motion.device">
-            <svg class="cl" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#cl-leaf"/></svg><span data-motion-label>Motion on</span>
+            <svg class="pg pg--gold" aria-hidden="true"><use href="/assets/svg/v2-sprite.svg#star"/></svg><span data-motion-label>Motion on</span>
           </button>
         </div>
       </div>

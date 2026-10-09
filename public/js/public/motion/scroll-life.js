@@ -2,7 +2,7 @@
 // requestAnimationFrame loop measures scroll velocity (smoothed, px/ms, + = down) and
 //  · turns it into a gentle lean (−2…2°) for the .lean cards that are ON SCREEN (written as --lean on each card,
 //    never on <html>: a root custom property would restyle the whole document every frame);
-//  · hands the velocity to subscribers (marquee speed, nav progress clover), so they need no loops of their own.
+//  · hands the velocity to subscribers (marquee speed, nav progress penguin), so they need no loops of their own.
 // Parallax, art camera and reveals are native CSS scroll-driven animations (see css/v2/motion.css).
 import { isCalm, onMotionChange } from './prefs.js';
 
@@ -86,7 +86,7 @@ const forgetMax = () => { maxScroll = -1; };
 new ResizeObserver(forgetMax).observe(document.documentElement);
 window.addEventListener('resize', forgetMax);
 
-/** Page scroll progress 0…1 (for the nav clover). */
+/** Page scroll progress 0…1 (for the nav penguin meter). */
 export function pageProgress() {
   if (maxScroll < 0) maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   return maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;

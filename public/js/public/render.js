@@ -7,8 +7,8 @@ export { el };
 const NS = 'http://www.w3.org/2000/svg';
 const SPRITE = '/assets/svg/v2-sprite.svg';
 
-/** Illustrated clover / sparkle / heart from the v2 sprite: sprite('cl-leaf', 'cl cl--pink'). Decorative. */
-export function sprite(symbol, cls = 'cl') {
+/** Illustrated sticker from the v2 sprite (penguin, star, drop, ripple, shell, spark, heart): sprite('pg-penguin', 'pg pg--pink'). Decorative. */
+export function sprite(symbol, cls = 'pg') {
   const svg = document.createElementNS(NS, 'svg');
   svg.setAttribute('class', cls);
   svg.setAttribute('aria-hidden', 'true');
@@ -82,10 +82,10 @@ export function filmFrame(video, { current, onSelect }) {
   }, [el('img', { src: ytThumb(video.youtubeId, 'mqdefault'), alt: '', loading: 'lazy', decoding: 'async', width: 320, height: 180 })]);
 }
 
-/** Paper note for a news item; `isNew` adds the NEW stamp, `tape` swaps the clover pin for washi tape. */
+/** Paper note for a news item; `isNew` adds the NEW stamp, `tape` swaps the penguin pin for washi tape. */
 export function newsNote(item, { isNew = false, tape = false, links = true } = {}) {
   return el('article', { class: 'paper note lean reveal' }, [
-    tape ? el('span', { class: 'tape' }) : sprite('cl-leaf', 'cl cl--pink pin'),
+    tape ? el('span', { class: 'tape' }) : sprite('pg-penguin', 'pg pin'),
     isNew ? el('span', { class: 'stamp', text: t('news.new') }) : null,
     el('time', { class: 'date-chip', datetime: item.postedOn, text: formatDate(item.postedOn) }),
     el('h3', { class: 'note__title', text: item.headline }),
@@ -104,7 +104,7 @@ export function releaseSleeve(item) {
       el('span', { class: 'sleeve__disc', 'aria-hidden': 'true' }),
       item.youtubeId
         ? el('img', { src: ytThumb(item.youtubeId, 'mqdefault'), alt: '', loading: 'lazy', decoding: 'async' })
-        : el('div', { class: 'sleeve__cover', 'aria-hidden': 'true' }, [el('b', { text: type }), el('span', { text: item.title }), sprite('cl-round', 'cl cl--white')]),
+        : el('div', { class: 'sleeve__cover', 'aria-hidden': 'true' }, [el('b', { text: type }), el('span', { text: item.title }), sprite('pg-penguin', 'pg')]),
     ]),
     el('div', { class: 'sleeve__meta' }, [
       el('p', { class: 'sleeve__kind' }, [`${type} · `, el('time', { datetime: item.releasedOn, text: formatDate(item.releasedOn) })]),
@@ -122,7 +122,7 @@ export function achievementRows(item, index, all) {
   if (index === 0 || all[index - 1].achievedOn.slice(0, 4) !== year) rows.push(el('li', { class: 'timeline__year', text: year }));
   const text = item.linkUrl ? externalLink(item.linkUrl, item.text) : el('span', { text: item.text });
   rows.push(el('li', { class: 'timeline__item' }, [
-    sprite('cl-leaf', 'cl cl--pink'),
+    sprite('star', 'pg pg--gold'),
     el('time', { datetime: item.achievedOn, text: formatDate(item.achievedOn).slice(5) }),
     el('p', {}, [text]),
   ]));
@@ -151,15 +151,15 @@ export function socialBadge(s) {
     class: 'social', href: s.url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': s.handle ? `${s.label} ${s.handle}` : s.label,
     'data-track': 'outbound_click', 'data-track-type': 'social', 'data-track-target': s.id,
   }, [
-    s.icon ? el('img', { src: s.icon, alt: '', width: 96, height: 96, loading: 'lazy' }) : sprite('cl-leaf', 'cl'),
+    s.icon ? el('img', { src: s.icon, alt: '', width: 96, height: 96, loading: 'lazy' }) : sprite('pg-penguin', 'pg'),
     el('span', { text: s.handle || s.label }),
   ])]);
 }
 
-/** Empty / error states with the mascot. */
+/** Empty / error states with the penguin sticker (Hanon has no mascot art). */
 export function stateNote(kind, { textKey, onRetry } = {}) {
   const box = el('div', { class: 'paper state-note', role: kind === 'error' ? 'alert' : null }, [
-    el('img', { src: '/assets/img/mascot-front-240.webp', alt: '', loading: 'lazy', width: 240, height: 204 }),
+    sprite('pg-penguin', 'pg'),
     el('p', { text: t(textKey || (kind === 'error' ? 'common.retry' : 'news.empty')) }),
   ]);
   if (onRetry) box.append(el('button', { class: 'btn btn--ghost btn--sm', type: 'button', text: '↻', 'aria-label': t('common.retry'), onclick: onRetry }));

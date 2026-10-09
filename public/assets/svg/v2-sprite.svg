@@ -1,49 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Design v2 SVG sprite: illustrated, FILLED clovers (never hollow outlines), sparkles, hearts.
-     Use by URL, e.g. use href="/assets/svg/v2-sprite.svg#cl-leaf" inside an svg with class "cl".
-     Colours come from the CSS custom properties c1 (leaf), c2 (inner leaf), c3 (vein/gloss), c4 (centre + stem)
-     set on the host svg (see .cl colour variants in css/v2/components.css).
+<!-- Sazanami Scrapbook SVG sprite: illustrated, FILLED stickers (never hollow outlines) with a white die-cut edge.
+     Use by URL, e.g. use href="/assets/svg/v2-sprite.svg#pg-penguin" inside an svg with class "pg".
+     Penguin colours: pg-body (body), pg-shade (flippers, side shade), pg-bow (bow tie).
+     Star, drop, ripple, shell colours: c1 (main fill), c2 (inner fill), c3 (light), c4 (deep line).
+     All of them are set on the host svg by the .pg colour variants in css/v2/components.css.
      NOTE: XML comments must never contain two hyphens in a row. -->
 <svg xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- one heart-shaped leaf pointing up, tip at the clover centre -->
-    <path id="cl-heart" d="M0 -4 C -4 -8 -21 -14 -21 -28 C -21 -37.5 -14 -43 -7.5 -43 C -3.5 -43 -0.5 -40.5 0 -37 C 0.5 -40.5 3.5 -43 7.5 -43 C 14 -43 21 -37.5 21 -28 C 21 -14 4 -8 0 -4 Z"/>
-    <g id="cl-leaf-one">
-      <use href="#cl-heart" style="fill: var(--c1, #5ea73a)"/>
-      <use href="#cl-heart" transform="translate(0 -24) scale(0.6) translate(0 24)" style="fill: var(--c2, #8fd16b)"/>
-      <path d="M0 -8 L0 -34" style="fill: none; stroke: var(--c3, #dcf3c9); stroke-width: 1.8; stroke-linecap: round"/>
-      <path d="M0 -20 L-7 -27 M0 -20 L7 -27" style="fill: none; stroke: var(--c3, #dcf3c9); stroke-width: 1.2; stroke-linecap: round; opacity: 0.8"/>
-      <ellipse cx="-9.5" cy="-33" rx="2.6" ry="4.6" transform="rotate(-28 -9.5 -33)" style="fill: #fff; opacity: 0.55"/>
-    </g>
-    <!-- white die-cut edge: the whole clover drawn fat and white underneath -->
-    <g id="cl-leaf-edge" style="fill: #fff; stroke: #fff; stroke-width: 9; stroke-linejoin: round">
-      <use href="#cl-heart" transform="rotate(45)"/>
-      <use href="#cl-heart" transform="rotate(135)"/>
-      <use href="#cl-heart" transform="rotate(225)"/>
-      <use href="#cl-heart" transform="rotate(315)"/>
-      <path d="M3 3 C 9 13 13 21 24 28" style="fill: none; stroke-width: 11; stroke-linecap: round"/>
-    </g>
+    <path id="pg-body-path" d="M0 -40 C 22 -40 36 -24 36 0 C 36 24 26 42 0 42 C -26 42 -36 24 -36 0 C -36 -24 -22 -40 0 -40 Z"/>
+    <path id="pg-flipper-l" d="M-32 2 C -44 7 -47 21 -41 29 C -36 25 -31 17 -29 10 Z"/>
+    <path id="pg-flipper-r" d="M32 2 C 44 7 47 21 41 29 C 36 25 31 17 29 10 Z"/>
+    <path id="star-path" d="M0 -44 Q 11 -11 44 0 Q 11 11 0 44 Q -11 11 -44 0 Q -11 -11 0 -44 Z"/>
+    <path id="drop-path" d="M0 -42 C 9 -26 28 -8 28 12 C 28 30 15 42 0 42 C -15 42 -28 30 -28 12 C -28 -8 -9 -26 0 -42 Z"/>
+    <path id="shell-path" d="M-6 33 L-30 4 A12 12 0 0 1 -31 -18 A11 11 0 0 1 -15 -32 A10 10 0 0 1 3 -35 A10 10 0 0 1 19 -29 A11 11 0 0 1 31 -13 L6 33 Z"/>
   </defs>
 
-  <!-- four-leaf clover sticker (detailed) -->
-  <symbol id="cl-leaf" viewBox="-52 -52 104 104" overflow="visible">
-    <use href="#cl-leaf-edge"/>
-    <path d="M3 3 C 9 13 13 21 24 28" style="fill: none; stroke: var(--c4, #2f7a1f); stroke-width: 4; stroke-linecap: round"/>
-    <use href="#cl-leaf-one" transform="rotate(45)"/>
-    <use href="#cl-leaf-one" transform="rotate(135)"/>
-    <use href="#cl-leaf-one" transform="rotate(225)"/>
-    <use href="#cl-leaf-one" transform="rotate(315)"/>
-    <circle r="5.5" style="fill: var(--c4, #2f7a1f)"/>
-    <circle cx="-1.6" cy="-1.8" r="1.8" style="fill: #fff; opacity: 0.7"/>
+  <!-- round chibi penguin sticker (after the penguin in Hanon's name logo): blue body, white face, gold beak, bow tie -->
+  <symbol id="pg-penguin" viewBox="-52 -52 104 104" overflow="visible">
+    <g style="fill: #fff; stroke: #fff; stroke-width: 10; stroke-linejoin: round">
+      <use href="#pg-body-path"/>
+      <use href="#pg-flipper-l"/>
+      <use href="#pg-flipper-r"/>
+      <ellipse cx="-13" cy="42" rx="10" ry="5"/>
+      <ellipse cx="13" cy="42" rx="10" ry="5"/>
+    </g>
+    <ellipse cx="-13" cy="42" rx="10" ry="5" style="fill: #ffc53d"/>
+    <ellipse cx="13" cy="42" rx="10" ry="5" style="fill: #ffc53d"/>
+    <use href="#pg-flipper-l" style="fill: var(--pg-shade, #3b82e0)"/>
+    <use href="#pg-flipper-r" style="fill: var(--pg-shade, #3b82e0)"/>
+    <use href="#pg-body-path" style="fill: var(--pg-body, #4f97f5)"/>
+    <path d="M14 -36 C 30 -28 36 -12 36 0 C 36 24 26 42 0 42 C 18 36 28 20 28 0 C 28 -16 22 -30 14 -36 Z" style="fill: var(--pg-shade, #3b82e0); opacity: 0.55"/>
+    <path d="M0 -18 C -5 -27 -24 -28 -27 -10 C -30 6 -18 18 0 19 C 18 18 30 6 27 -10 C 24 -28 5 -27 0 -18 Z" style="fill: #fff"/>
+    <ellipse cx="0" cy="31" rx="19" ry="10" style="fill: #fff"/>
+    <circle cx="-10" cy="-4" r="4.4" style="fill: #1d3b66"/>
+    <circle cx="10" cy="-4" r="4.4" style="fill: #1d3b66"/>
+    <circle cx="-11.4" cy="-5.6" r="1.5" style="fill: #fff"/>
+    <circle cx="8.6" cy="-5.6" r="1.5" style="fill: #fff"/>
+    <ellipse cx="-18" cy="5" rx="5" ry="3.2" style="fill: #ffb8cf"/>
+    <ellipse cx="18" cy="5" rx="5" ry="3.2" style="fill: #ffb8cf"/>
+    <ellipse cx="0" cy="3.5" rx="6" ry="4" style="fill: #ffc53d"/>
+    <ellipse cx="-1.8" cy="2.2" rx="2" ry="1" style="fill: #fff; opacity: 0.6"/>
+    <path d="M0 21 L-10 15.5 C -12 19 -12 23 -10 26.5 Z M0 21 L10 15.5 C 12 19 12 23 10 26.5 Z" style="fill: var(--pg-bow, #ff8fb8)"/>
+    <circle cx="0" cy="21" r="3" style="fill: var(--pg-bow, #ff8fb8)"/>
+    <ellipse cx="-19" cy="-26" rx="4" ry="7.5" transform="rotate(-35 -19 -26)" style="fill: #fff; opacity: 0.55"/>
   </symbol>
 
-  <!-- the site's rounded brand clover, filled + shaded (logo style) -->
-  <symbol id="cl-round" viewBox="15 30 545 545" overflow="visible">
-    <path d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z" style="fill: #fff; stroke: #fff; stroke-width: 46; stroke-linejoin: round"/>
-    <path d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z" style="fill: var(--c1, #5ea73a)"/>
-    <path d="M286 85 A153 153 0 1 1 505 300 A153 153 0 1 1 288 517 A153 153 0 1 1 68 300 A153 153 0 1 1 286 85 Z" transform="translate(286.5 301) scale(0.6) translate(-286.5 -301)" style="fill: var(--c2, #8fd16b)"/>
-    <ellipse cx="190" cy="170" rx="42" ry="70" transform="rotate(-40 190 170)" style="fill: #fff; opacity: 0.5"/>
-    <circle cx="286.5" cy="301" r="30" style="fill: var(--c4, #2f7a1f)"/>
+  <!-- four-point "stella" star sticker -->
+  <symbol id="star" viewBox="-52 -52 104 104" overflow="visible">
+    <use href="#star-path" style="fill: #fff; stroke: #fff; stroke-width: 10; stroke-linejoin: round"/>
+    <use href="#star-path" style="fill: var(--c1, #79b5ff); stroke: var(--c4, #1f5e9e); stroke-width: 2.5; stroke-linejoin: round"/>
+    <use href="#star-path" transform="scale(0.5)" style="fill: var(--c2, #cde4f6)"/>
+    <ellipse cx="-5" cy="-14" rx="2.6" ry="6.5" transform="rotate(-20 -5 -14)" style="fill: #fff; opacity: 0.7"/>
+  </symbol>
+
+  <!-- water drop sticker -->
+  <symbol id="drop" viewBox="-52 -52 104 104" overflow="visible">
+    <use href="#drop-path" style="fill: #fff; stroke: #fff; stroke-width: 10; stroke-linejoin: round"/>
+    <use href="#drop-path" style="fill: var(--c1, #79b5ff); stroke: var(--c4, #1f5e9e); stroke-width: 2.5; stroke-linejoin: round"/>
+    <use href="#drop-path" transform="translate(4 12) scale(0.6)" style="fill: var(--c2, #cde4f6)"/>
+    <ellipse cx="-12" cy="8" rx="4" ry="9" transform="rotate(18 -12 8)" style="fill: #fff; opacity: 0.65"/>
+  </symbol>
+
+  <!-- ripples (sazanami): filled concentric bands with a little splash, on a white die-cut backing -->
+  <symbol id="ripple" viewBox="-52 -52 104 104" overflow="visible">
+    <g style="fill: #fff; stroke: #fff; stroke-width: 9; stroke-linejoin: round">
+      <ellipse cx="0" cy="10" rx="46" ry="18"/>
+      <circle cx="-10" cy="-12" r="4"/>
+      <circle cx="10" cy="-16" r="3.4"/>
+      <circle cx="0" cy="-24" r="4.6"/>
+    </g>
+    <path fill-rule="evenodd" d="M-46 10 A46 18 0 1 0 46 10 A46 18 0 1 0 -46 10 Z M-37 10 A37 12.5 0 1 0 37 10 A37 12.5 0 1 0 -37 10 Z" style="fill: var(--c2, #cde4f6)"/>
+    <path fill-rule="evenodd" d="M-29 10 A29 10 0 1 0 29 10 A29 10 0 1 0 -29 10 Z M-21 10 A21 6.5 0 1 0 21 10 A21 6.5 0 1 0 -21 10 Z" style="fill: var(--c1, #79b5ff)"/>
+    <ellipse cx="0" cy="10" rx="12" ry="3.8" style="fill: var(--c4, #1f5e9e)"/>
+    <circle cx="-10" cy="-12" r="4" style="fill: var(--c1, #79b5ff)"/>
+    <circle cx="10" cy="-16" r="3.4" style="fill: var(--c1, #79b5ff)"/>
+    <circle cx="0" cy="-24" r="4.6" style="fill: var(--c1, #79b5ff)"/>
+    <ellipse cx="-24" cy="3" rx="7" ry="1.6" style="fill: #fff; opacity: 0.8"/>
+  </symbol>
+
+  <!-- scallop shell sticker (the shell from her logo and hair clip) -->
+  <symbol id="shell" viewBox="-52 -52 104 104" overflow="visible">
+    <g style="fill: #fff; stroke: #fff; stroke-width: 10; stroke-linejoin: round">
+      <use href="#shell-path"/>
+      <path d="M-12 31 L12 31 L9 41 L-9 41 Z"/>
+    </g>
+    <path d="M-12 31 L12 31 L9 41 L-9 41 Z" style="fill: var(--c4, #1f5e9e)"/>
+    <use href="#shell-path" style="fill: var(--c1, #79b5ff); stroke: var(--c4, #1f5e9e); stroke-width: 2.5; stroke-linejoin: round"/>
+    <path d="M-3 27 L-22 -8 M-1 26 L-10 -22 M1 26 L6 -24 M3 27 L20 -12" style="fill: none; stroke: var(--c2, #cde4f6); stroke-width: 4.5; stroke-linecap: round"/>
+    <ellipse cx="-19" cy="-18" rx="3" ry="6" transform="rotate(-30 -19 -18)" style="fill: #fff; opacity: 0.6"/>
   </symbol>
 
   <!-- four-point sparkle -->
@@ -53,7 +97,7 @@
 
   <!-- filled heart with gloss -->
   <symbol id="heart" viewBox="-12 -12 24 24" overflow="visible">
-    <path d="M0 9 C -8 3 -11 -1 -11 -4.5 C -11 -8.5 -7.5 -10.5 -4.8 -10.5 C -2.6 -10.5 -1 -9.3 0 -7.6 C 1 -9.3 2.6 -10.5 4.8 -10.5 C 7.5 -10.5 11 -8.5 11 -4.5 C 11 -1 8 3 0 9 Z" style="fill: var(--c1, #ef5f8d); stroke: #fff; stroke-width: 2.4; stroke-linejoin: round; paint-order: stroke"/>
+    <path d="M0 9 C -8 3 -11 -1 -11 -4.5 C -11 -8.5 -7.5 -10.5 -4.8 -10.5 C -2.6 -10.5 -1 -9.3 0 -7.6 C 1 -9.3 2.6 -10.5 4.8 -10.5 C 7.5 -10.5 11 -8.5 11 -4.5 C 11 -1 8 3 0 9 Z" style="fill: var(--c1, #f78db5); stroke: #fff; stroke-width: 2.4; stroke-linejoin: round; paint-order: stroke"/>
     <ellipse cx="-5" cy="-5.5" rx="1.8" ry="2.8" transform="rotate(-30 -5 -5.5)" style="fill: #fff; opacity: 0.65"/>
   </symbol>
 

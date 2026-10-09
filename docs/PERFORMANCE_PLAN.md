@@ -1,5 +1,7 @@
 # PERFORMANCE_PLAN.md: Making the public site smooth (no content removed, no snapping)
 
+> **Hanon repo note:** this is the **Kotoha site's** performance pass, copied as reference. Its results are the rules for this site (FORHANON.md §9); file names and "clover" mentions refer to the Kotoha code this site was copied from. Hanon's own measurements go into `docs/PROGRESS.md` (Phase 7).
+
 > **Status:** **executed 2026-10-09** (Phases 0–5 and 7; Phase 6 measured and not needed; Phase 8 not approved). What was actually done, what changed from the plan, and the measurements are in **§7**.
 > **Scope:** public site only (`public/index.html`, `public/css/v2/*`, `public/js/public/**`). The admin is not touched.
 > **Owner's rules for this work:**

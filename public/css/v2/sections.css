@@ -8,7 +8,7 @@
   [data-accent='gallery'] { --accent: var(--accent-gallery); }
 
   /* Fixed backdrop: all section artworks stacked; the current one fades in (motion/backdrop.js) */
-  .backdrop { position: fixed; inset: 0; z-index: -10; overflow: hidden; background: var(--pink-300); }
+  .backdrop { position: fixed; inset: 0; z-index: -10; overflow: hidden; background: var(--sky-300); }
   /* one layer carries the scroll pan for all artworks (motion.css), instead of five full-screen animations */
   .backdrop__pan { position: absolute; inset: 0; }
   /* after an artwork has faded out it is hidden, so the browser stops compositing four invisible full-screen layers */
@@ -16,23 +16,23 @@
   .backdrop__art.is-active { opacity: 1; visibility: visible; transition: opacity 0.9s var(--ease-in-out), visibility 0s; }
   .backdrop__art img { width: 100%; height: 100%; object-fit: cover; scale: 1.06; transition: scale 1.6s var(--ease-out); }
   .backdrop__art:not(.is-active) img { scale: 1.12; }
-  .backdrop__pan::after { /* soft pink veil so paper notes read well on any artwork — painted into the pan layer
+  .backdrop__pan::after { /* soft sky-white veil so paper notes read well on any artwork — painted into the pan layer
     (no extra full-screen layer); extends past the edges so the pan never uncovers a strip */
     content: ''; position: absolute; inset: -4% 0; pointer-events: none;
-    background: linear-gradient(180deg, rgb(255 226 235 / 0.12), rgb(255 226 235 / 0.22));
+    background: linear-gradient(180deg, rgb(226 240 251 / 0.12), rgb(226 240 251 / 0.22));
   }
 
   /* Full-bleed artwork layer behind a section's content */
-  .art { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--pink-300); }
+  .art { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--sky-300); }
   .art > img { width: 100%; height: 100%; object-fit: cover; }
 
   /* Scrims soften the artwork only behind the content side, so the character stays bright */
   .scrim { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-  .scrim--left { background: linear-gradient(90deg, rgb(255 245 248 / 0.8) 0%, rgb(255 245 248 / 0.5) 40%, rgb(255 245 248 / 0) 64%); }
-  .scrim--right { background: linear-gradient(270deg, rgb(255 245 248 / 0.8) 0%, rgb(255 245 248 / 0.5) 40%, rgb(255 245 248 / 0) 64%); }
-  .scrim--bottom { background: linear-gradient(0deg, rgb(255 226 235 / 0.92) 0%, rgb(255 226 235 / 0.55) 34%, rgb(255 226 235 / 0) 62%); }
-  .scrim--soft { background: rgb(255 245 248 / 0.35); }
+  .scrim--left { background: linear-gradient(90deg, rgb(243 249 254 / 0.8) 0%, rgb(243 249 254 / 0.5) 40%, rgb(243 249 254 / 0) 64%); }
+  .scrim--right { background: linear-gradient(270deg, rgb(243 249 254 / 0.8) 0%, rgb(243 249 254 / 0.5) 40%, rgb(243 249 254 / 0) 64%); }
+  .scrim--bottom { background: linear-gradient(0deg, rgb(226 240 251 / 0.92) 0%, rgb(226 240 251 / 0.55) 34%, rgb(226 240 251 / 0) 62%); }
+  .scrim--soft { background: rgb(243 249 254 / 0.35); }
   @media (max-width: 899px) {
-    .scrim--left, .scrim--right { background: linear-gradient(0deg, rgb(255 245 248 / 0.82) 0%, rgb(255 245 248 / 0.55) 55%, rgb(255 245 248 / 0.2) 100%); }
+    .scrim--left, .scrim--right { background: linear-gradient(0deg, rgb(243 249 254 / 0.82) 0%, rgb(243 249 254 / 0.55) 55%, rgb(243 249 254 / 0.2) 100%); }
   }
 }

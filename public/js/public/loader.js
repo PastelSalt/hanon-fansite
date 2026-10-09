@@ -1,6 +1,6 @@
-// Loading screen v2: random artwork, real progress (the inner clover's four petals fill as the tiers complete),
+// Loading screen v2: random artwork, real progress (the inner star's four rays light up as the tiers complete),
 // "Did you know?" facts, tiered preloading (min 3 s / soft 6 s / hard cap 10 s) and an iris-open exit.
-// The two clovers are pure CSS animation in static markup, so they turn from the very first paint.
+// The two stars are pure CSS animation in static markup, so they turn from the very first paint.
 import { t } from '../shared/i18n-core.js';
 import { mountSpinner } from './motion/spinner.js';
 import { waveText } from './motion/text.js';
@@ -14,7 +14,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, Math.max(0, ms)));
 let spinner = null;
 let factTimer = 0;
 
-/** The artwork itself is pure CSS (layout.css, keyed by html[data-loader-art]); this just wakes the spinner's petals. */
+/** The artwork itself is pure CSS (layout.css, keyed by html[data-loader-art]); this just wakes the spinner's rays. */
 export function showLoaderArt() {
   spinner = mountSpinner(document.getElementById('loader-spinner'));
 }
@@ -44,7 +44,7 @@ export function showLoaderText() {
  * Waits for Tier 1 (required) and Tier 2 (preferred) tasks. Returns when:
  * elapsed ≥ 3 s AND Tier 1 done AND (Tier 2 done OR 6 s passed) — or at the 10 s cap regardless.
  * Each task is a function returning a promise; failures count as "done" (the page shows fallbacks).
- * `onProgress(0…1)` reports how many tasks have finished (drives the petals).
+ * `onProgress(0…1)` reports how many tasks have finished (drives the rays).
  */
 export async function waitForAssets({ tier1, tier2 }) {
   const start = performance.now();
@@ -68,7 +68,7 @@ export async function waitForAssets({ tier1, tier2 }) {
   return Math.round(elapsed());
 }
 
-/** Exit: all petals lit → one fast spin → a circle opens from the clover onto Home. Calm mode / old browsers: plain fade. */
+/** Exit: all rays lit → one fast spin → a circle opens from the star onto Home. Calm mode / old browsers: plain fade. */
 export async function hideLoader() {
   const loader = document.getElementById('loader');
   if (!loader) return;
