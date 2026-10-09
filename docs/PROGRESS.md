@@ -137,8 +137,9 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] Sister-site link in the footer ("Sister site: Kotoha fan site 🍀"), Q8 — both sites are live
 - [x] Kotoha footer links back ("Sister site: Hanon fan site 🐧", commit `b4b722b` in the Kotoha repo, auto-deployed); Hanon redeployed (`dpl_CTR3vq3feMRck4JjAuqfYDQVVvCR`); production load in JA: no console/CSP errors
 - [x] Vercel CLI installed + logged in (owner approved the device login); `vercel link` + `vercel git connect` → pushes to `main` deploy automatically
-- [ ] **Owner:** add `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` in Vercel (+ `.env.local` for scripts), then Claude redeploys
-- [ ] **Owner:** choose the bootstrap admin username/password in `.env.local`, run `npm run admin:bootstrap`, delete the two lines
+- [x] Owner added `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` in Vercel (Sensitive, Production; a key named for this project); production redeployed
+- [x] Owner account bootstrapped by the owner (`npm run admin:bootstrap`; the temporary password was typed by the owner into a hidden prompt, never stored in a file): username `penguinhanon`, role owner, `must_change_password = true`
+- [ ] Owner: first login at /login → change the password
 ### Phase 6 — Admin smoke test
 ### Phase 7 — Perf + behaviour harness (`scripts/perf/`, branch `phase-7-perf`) — harness done, final numbers after the gallery is seeded
 - [x] `cdp.js` (headless Chrome over CDP, Node WebSocket, optional real GPU), `server.js` (serves any site's `public/` with its vercel.json headers, proxies `/api/public/*` read-only, `/api/track` → 204), `shots.js`, `scroll-bench.js` (rAF frame recorder, long tasks, `TRACE=1` per-thread breakdown, `OFF=` isolation), `behaviour.js` (32 checks)
@@ -169,8 +170,9 @@ Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to cr
 
 ## 8. OWNER ACTION ITEMS
 
-- Add `CLOUDINARY_API_KEY` + `CLOUDINARY_API_SECRET` to the Vercel project (Sensitive, Production + Preview) and to `.env.local`.
-- Bootstrap the owner admin: fill `ADMIN_BOOTSTRAP_USERNAME/PASSWORD` in `.env.local`, run `npm run admin:bootstrap`, then delete both lines.
+- First admin login at https://hanon-fansite.vercel.app/login and change the temporary password.
+- Optional: put the Cloudinary key/secret into `.env.local` too (only needed for local scripts such as `npm run gallery:seed`).
+- Kotoha site: its Vercel project has no `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` (seen 2026-10-09), so its admin gallery upload probably fails in production.
 - Later: more solo Hanon artwork (#はのぴく) for the loaders (and credits).
 
 ---
