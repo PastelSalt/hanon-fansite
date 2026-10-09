@@ -7,7 +7,7 @@
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
 | **Last checkpoint** | 2026-10-09: **live at https://hanon-fansite.vercel.app** (Phase 5 infra done; owner adds the Cloudinary API key/secret in Vercel) |
-| **Current phase** | Phase 6 — admin smoke test (needs the owner account + Cloudinary key) |
+| **Current phase** | Phase 7 — optimisation decision; Phase 8 QA |
 | **Next action** | See §6 |
 
 ---
@@ -139,8 +139,13 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] Vercel CLI installed + logged in (owner approved the device login); `vercel link` + `vercel git connect` → pushes to `main` deploy automatically
 - [x] Owner added `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` in Vercel (Sensitive, Production; a key named for this project); production redeployed
 - [x] Owner account bootstrapped by the owner (`npm run admin:bootstrap`; the temporary password was typed by the owner into a hidden prompt, never stored in a file): username `penguinhanon`, role owner, `must_change_password = true`
-- [ ] Owner: first login at /login → change the password
-### Phase 6 — Admin smoke test
+- [x] Owner logged in and changed the password (verified: `must_change_password = false`)
+### Phase 6 — Admin smoke test (2026-10-09) ✅
+- [x] Throwaway Neon branch `smoke-test-2026-10-09` (`br-dark-dawn-azy4aggl`, copy of production); on the copy only, the owner got a generated test password + forced change (production never touched — verified afterwards)
+- [x] `scripts/perf/admin-smoke.js` (API level, refuses non-localhost URLs): **50/50** — login/wrong password/forced change/weak password, videos (YouTube lookup, draft, duplicate 409, publish, archive, restore), news (link + required-field validation, publish, edit, archive), achievements, discography (future release = Coming soon), gallery credit edit, accounts (`penguinhanon2`, owner-only 403, reset revokes sessions, remove, next is `penguinhanon3`), activity log, analytics, logout, Origin check, lockout 429
+- [x] Admin UI walk in headless Chrome (login form → dashboard, videos, news, discography, gallery, accounts, archive, activity): all render, Hanon branding, no errors except the expected 401 `me` check on the login page
+- [ ] Not tested here: gallery upload/delete (the copy's rows point at the real Cloudinary files; no local API secret) → owner tries one upload + delete on production with a test image
+- [ ] Owner: delete the branch `smoke-test-2026-10-09` when no longer needed (or ask Claude)
 ### Phase 7 — Perf + behaviour harness (`scripts/perf/`, branch `phase-7-perf`) — harness done, final numbers after the gallery is seeded
 - [x] `cdp.js` (headless Chrome over CDP, Node WebSocket, optional real GPU), `server.js` (serves any site's `public/` with its vercel.json headers, proxies `/api/public/*` read-only, `/api/track` → 204), `shots.js`, `scroll-bench.js` (rAF frame recorder, long tasks, `TRACE=1` per-thread breakdown, `OFF=` isolation), `behaviour.js` (32 checks)
 - [x] Behaviour suite 32/32 locally (lightbox check skipped while the gallery is empty). Found + fixed an inherited bug: the marquee threw (and could stop) when motion was re-enabled while reversed after scrolling up (chip filed for the Kotoha repo)
