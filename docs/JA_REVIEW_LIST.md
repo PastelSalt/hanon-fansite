@@ -57,6 +57,7 @@ Compiled from official pages; the wording follows the official 実績 style used
 | `about.poseAlt` | Hanonの全身モデル（正面） | ⏳ |
 | `about.role` | 歌い手・VTuber（ハコニワリリィ・StellaPhizz） | ⏳ |
 | `footer.disclaimer` | このサイトは非公式・非営利のファンサイトです。Hanon、ハコニワリリィ、StellaPhizz、HoneyWorks、MARUMOCHI、AiceClassとは関係ありません。キャラクターおよびイラストの権利は、それぞれの権利者様・作者様に帰属します。 | ⏳ |
+| `footer.sister` | 姉妹サイト：Kotohaファンサイト | ⏳ |
 
 ## 4. Static Japanese on the page (`public/index.html`, site voice)
 

@@ -15,7 +15,7 @@
 | Kotoha source | Available **locally** at `../kotoha-fansite` (`main` @ `e5a5cc3`, includes the performance pass + 2026-10-09 data fixes). It's read-only for us: we copy from it and never change it |
 | Spec questions | Q1–Q9 ✅ and N1–N5 ✅ (2026-10-09, all as recommended) → §4 |
 | Missing logo | ✅ **Recovered** from the Wayback Machine copy of the defunct aiceclass.com (§1.2) |
-| Accounts / infra | Nothing created. Neon, Cloudinary preset, Vercel project, GitHub repo all wait for Phase 5 / owner OK |
+| Accounts / infra | ✅ 2026-10-09: live at https://hanon-fansite.vercel.app (Neon `hanon-fansite`, Cloudinary preset `hanon_gallery_signed`, Vercel `hanon-fansite`, private repo `PastelSalt/hanon-fansite`); details in `docs/PROGRESS.md` §3 |
 
 ---
 

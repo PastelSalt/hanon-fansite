@@ -4,7 +4,7 @@ An unofficial, non-profit, bilingual (日本語 / English) fan site for **Hanon 
 
 Design: **"Sazanami Scrapbook"** (さざなみ = ripples): the Kotoha site's scrapbook (paper notes taped onto fan art, die-cut stickers, washi tape, stamps) in Hanon's colours (blue 🩵 + penguin gold) with her mark 🐧, ripples, water drops and stars.
 
-> Status: in development. Spec: [`FORHANON.md`](FORHANON.md) · phase map: [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) · progress: [`docs/PROGRESS.md`](docs/PROGRESS.md).
+> Status: live at **https://hanon-fansite.vercel.app** (admin setup in progress). Spec: [`FORHANON.md`](FORHANON.md) · phase map: [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) · progress: [`docs/PROGRESS.md`](docs/PROGRESS.md).
 
 ## Stack
 

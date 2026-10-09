@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: Phase 7 harness + baseline on branch `phase-7-perf` (Phases 5–6 wait for the owner's OK on infra) |
-| **Current phase** | Phase 5 — infra (waiting for the owner's OK per resource) |
+| **Last checkpoint** | 2026-10-09: **live at https://hanon-fansite.vercel.app** (Phase 5 infra done; owner adds the Cloudinary API key/secret in Vercel) |
+| **Current phase** | Phase 6 — admin smoke test (needs the owner account + Cloudinary key) |
 | **Next action** | See §6 |
 
 ---
@@ -61,8 +61,12 @@
 | Kotoha source | `../kotoha-fansite` @ `e5a5cc3` (copied in Phase 1; read-only) |
 | Local preview | `node scripts/dev-server.js` (PORT, default 3000). Without `DATABASE_URL` the public API reads an in-memory PGlite DB loaded from `db/migrations` + `db/seed.sql` (`scripts/dev-db.js`) |
 | Hanon YouTube channel ID | `UCJB1hgmiAD4ysg0Ao7uS8Rw` |
-| Vercel / Neon / Cloudinary | not created yet (Phase 5, owner OK per resource). Plan: Vercel `hanon-fansite` (`sin1`), separate Neon project `hanon-fansite`, same Cloudinary cloud with folder `hanon-fansite/gallery` + preset `hanon_gallery_signed` |
-| GitHub | owner creates the repo; no remote yet |
+| Vercel project | `hanon-fansite` → **https://hanon-fansite.vercel.app**, ID `prj_9UaSNs5M0OAfC3jPGpZN5QWViRHL`, personal scope (`team_iTXgjBMqb9YpVCwrSPc0UKWO`; connector calls: omit teamId), functions `sin1`, Node 24.x, no framework, output `public/`, Vercel Authentication on previews only |
+| Vercel env vars | `DATABASE_URL` + `ANALYTICS_SALT` (Sensitive, Production + Preview; the production salt differs from the local one), `CLOUDINARY_CLOUD_NAME` / `_FOLDER` / `_UPLOAD_PRESET` (plain, all). **Owner adds `CLOUDINARY_API_KEY` + `CLOUDINARY_API_SECRET`** (Sensitive, Production + Preview), then redeploy |
+| Neon project | `hanon-fansite`, ID **`broad-flower-24329862`**, `aws-ap-southeast-1`, PG 17, branch `main` = `br-falling-water-az0enons`, database `hanon`, role `hanon_owner`, endpoint `ep-rough-voice-azj6ei6t` (pooled host has `-pooler`). Free tier |
+| Cloudinary | same cloud as Kotoha (`dijqsw0k8`); folder `hanon-fansite/gallery`; signed preset **`hanon_gallery_signed`** (created 2026-10-09, same settings as Kotoha's, tag `hanon-gallery`) |
+| GitHub | private **https://github.com/PastelSalt/hanon-fansite** (created 2026-10-09 with the owner's `gh` login for the deployment); `main` = production |
+| Secrets | `.env.local` (mode 600, git-ignored): DB URLs, local salt, Cloudinary names; owner adds the Cloudinary key/secret + bootstrap admin values there |
 | Network quirk | `web.archive.org` doesn't resolve with local DNS → `curl --resolve web.archive.org:443:207.241.237.3` |
 
 ---
@@ -123,7 +127,15 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 - [x] Phone nav: 「メニュー」 kept on one line; below 420 px the nav's motion toggle moves out (still in the menu + footer)
 - [x] JA review list complete for everything written so far (`docs/JA_REVIEW_LIST.md`)
 
-### Phase 5 — Infra + seed ✋ (owner OK per resource)
+### Phase 5 — Infra + seed (owner: "you may start the online deployment", 2026-10-09)
+- [x] Neon project `hanon-fansite` (Singapore, PG 17, db `hanon`) → `db:migrate` + `db:seed`: 8 videos, 15 news, 25 achievements, 23 releases
+- [x] Cloudinary preset `hanon_gallery_signed` + gallery seed: the 7 originals uploaded through the connector's signed upload (no API secret needed locally) as `hanon-fansite/gallery/seed-*`, rows inserted with the `data.js` credits (same result as `npm run gallery:seed`)
+- [x] Vercel project + env vars; private GitHub repo; first production deploy from `main` (`dpl_J6PJT15Kr4y5xLpLCUUxDSRb3KLP`) → https://hanon-fansite.vercel.app
+- [x] Smoke test: page, API (home/gallery/geo), assets, `/login`, `/admin` = 200; `FORHANON.md`, `/assets/backgrounds/*`, `/docs/*`, `/scripts/*` = 404; CSP/HSTS/X-Frame-Options present
+- [x] Behaviour suite on production data (local code + read-only API proxy, analytics swallowed): **33/33** incl. the gallery lightbox
+- [x] Sister-site link in the footer ("Sister site: Kotoha fan site 🍀"), Q8 — both sites are live
+- [ ] **Owner:** add `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` in Vercel (+ `.env.local` for scripts), then Claude redeploys
+- [ ] **Owner:** choose the bootstrap admin username/password in `.env.local`, run `npm run admin:bootstrap`, delete the two lines
 ### Phase 6 — Admin smoke test
 ### Phase 7 — Perf + behaviour harness (`scripts/perf/`, branch `phase-7-perf`) — harness done, final numbers after the gallery is seeded
 - [x] `cdp.js` (headless Chrome over CDP, Node WebSocket, optional real GPU), `server.js` (serves any site's `public/` with its vercel.json headers, proxies `/api/public/*` read-only, `/api/track` → 204), `shots.js`, `scroll-bench.js` (rAF frame recorder, long tasks, `TRACE=1` per-thread breakdown, `OFF=` isolation), `behaviour.js` (32 checks)
@@ -154,9 +166,9 @@ Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to cr
 
 ## 8. OWNER ACTION ITEMS
 
-- Create the GitHub repo when ready (we add the remote then).
+- Add `CLOUDINARY_API_KEY` + `CLOUDINARY_API_SECRET` to the Vercel project (Sensitive, Production + Preview) and to `.env.local`.
+- Bootstrap the owner admin: fill `ADMIN_BOOTSTRAP_USERNAME/PASSWORD` in `.env.local`, run `npm run admin:bootstrap`, then delete both lines.
 - Later: more solo Hanon artwork (#はのぴく) for the loaders (and credits).
-- Phase 5: approve creating each of Neon project, Cloudinary preset, Vercel project; put bootstrap admin credentials in `.env.local` yourself.
 
 ---
 
@@ -189,3 +201,9 @@ Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to cr
 - Owner: "do all the recommended"; delete bg3; find the artists on X; use what's available for loaders.
 - Credits: bg4 + bg5 @snowclole, bg7 @Parfait_Pie_12 (byte-identical to the X originals), bg6 逢坂レイ (@6963Saki, via the おまえも♡ cover thumbnail credit); bg1/bg2 unknown; avatar = Hanon's own X icon.
 - Phase 1 done on `phase-1-import` (see §5).
+
+### 2026-10-09: Session 2 (deployment)
+- Owner: "do the recommended actions, you may start the online deployment".
+- `main` fast-forwarded to the reviewed phases. Created Neon `hanon-fansite`, Cloudinary preset `hanon_gallery_signed`, Vercel project `hanon-fansite`, private GitHub repo `PastelSalt/hanon-fansite`; migrated + seeded; gallery seeded (7 images); first production deploy READY at https://hanon-fansite.vercel.app.
+- The Vercel CLI isn't signed in on this machine and the connector's inline upload can't carry 4 MB of images, so the deploy goes through GitHub (as for Kotoha).
+- Footer sister-site links (Q8). Next: owner adds the Cloudinary key + bootstraps the admin → Phase 6 admin smoke test; Phase 7 optimisation decision.
