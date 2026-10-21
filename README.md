@@ -1,6 +1,6 @@
 # Hanon Fan Site
 
-An unofficial, non-profit, bilingual (日本語 / English) fan site for **Hanon (はのん)**, vocalist of the duo ハコニワリリィ (HaKoniwalily) with Kotoha, of the music trio StellaPhizz, and a HoneyWorks guest vocalist. Built by **Moeko Software and Technologies** as the sister site of the [Kotoha fan site](https://kotoha-fansite.vercel.app/).
+An unofficial, non-profit, bilingual (日本語 / English) fan site for **Hanon (はのん)**, vocalist of the duo ハコニワリリィ (HaKoniwalily) with Kotoha, of the music trio StellaPhizz, and a HoneyWorks guest vocalist. Built by **Moeko Works** as the sister site of the [Kotoha fan site](https://kotoha-fansite.vercel.app/).
 
 Design: **"Sazanami Scrapbook"** (さざなみ = ripples): the Kotoha site's scrapbook (paper notes taped onto fan art, die-cut stickers, washi tape, stamps) in Hanon's colours (blue 🩵 + penguin gold) with her mark 🐧, ripples, water drops and stars.
 
@@ -31,4 +31,4 @@ Other scripts: `npm run images:optimize` (originals in `assets/` → WebP in `pu
 
 ## Credits
 
-Character design はなあられ · modeling 鍋公かお · model and name logo © AiceClass. Background artists are credited in the site footer and in `public/js/public/data.js`. Site design & code © 2026 Moeko Software and Technologies.
+Character design はなあられ · modeling 鍋公かお · model and name logo © AiceClass. Background artists are credited in the site footer and in `public/js/public/data.js`. Site design & code © 2026 Moeko Works.

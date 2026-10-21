@@ -35,7 +35,7 @@
 | `model/charactermodelsheet.jpeg` | 1228×800 | Official turnaround (4 views), "©AiceClass" in corner | solo | ©AiceClass |
 | `model/hanonpromotional.png` | 1386×1732 | Official debut key visual (full body + bust + logo). **It's a JPEG with a `.png` name** → rename to `.jpg` in Phase 3 | solo | (official) |
 | `icons/hanon_icon.jpeg` | 400×400 | Avatar: **Hanon's current X profile icon** (same art, slightly different crop) | solo | illustrator not stated → "Artist unknown" (like Kotoha's) |
-| `icons/{twitter,youtube,twitch,twitcasting,moesoft_logo}.png` | | Same files as the Kotoha set → reuse as is | | |
+| `icons/{twitter,youtube,twitch,twitcasting,moekoworks_logo}.png` | | Same files as the Kotoha set → reuse as is | | |
 
 Note: **5 of the 7 backgrounds are duo art** (Hanon × Kotoha). That suits a sister site, but Home and About should use the two solo pieces so the site reads as Hanon's first.
 
@@ -64,7 +64,7 @@ Network note: `web.archive.org` doesn't resolve with this machine's DNS; `curl -
 | Full-body pose (transparent) | ✅ official front model | owner may prefer a real pose later |
 | Mascot (cameo, empty states) | ❌ none | ✅ Q9a: the **SVG penguin sticker** (`#pg-penguin`) instead of mascot art |
 | Model sheets (gallery seed) | ✅ turnaround (1228×800, low-res) + front model + key visual | credit "© AiceClass" |
-| Platform icons, Moesoft logo | ✅ | reuse |
+| Platform icons, Moeko Works logo | ✅ | reuse |
 | favicon, apple-touch-icon, og-image | ❌ | generate in `optimize-images.js` (penguin/star SVG favicon; OG = logo on `#b7d7ef` + key visual) |
 | Clover frame PNGs, section divider | n/a | Hanon versions drawn as SVG in the script (ripple/scallop divider) |
 
@@ -101,7 +101,7 @@ One branch per phase; merge to `main` only with the owner's OK (spec §2 rule 10
 
 ### Phase 1 — Bring in the Kotoha code, strip Kotoha (branch `phase-1-import`)
 
-1. `git init`, repo-local author: `Moesoft: Moeko Software and Technologies <214653345+PastelSalt@users.noreply.github.com>`. The owner creates the GitHub remote whenever they like (we don't).
+1. `git init`, repo-local author: `Moeko Works <214653345+PastelSalt@users.noreply.github.com>`. The owner creates the GitHub remote whenever they like (we don't).
 2. Copy tracked files from `../kotoha-fansite` **except** the spec §4.1 list:
    ```
    rsync -a --exclude-from=<list> ../kotoha-fansite/ ./
@@ -226,7 +226,7 @@ Production deploy, `prelaunch:reset` (OK), first owner login, remove bootstrap e
 | Date | File | Source | By |
 |---|---|---|---|
 | (owner) | `assets/backgrounds/*`, `assets/model/charactermodelsheet.jpeg`, `assets/model/hanonpromotional.png`, `assets/icons/hanon_icon.jpeg` | supplied by the owner | owner |
-| (owner) | `assets/icons/{twitter,youtube,twitch,twitcasting,moesoft_logo}.png` | same files as the Kotoha repo | owner |
+| (owner) | `assets/icons/{twitter,youtube,twitch,twitcasting,moekoworks_logo}.png` | same files as the Kotoha repo | owner |
 | 2026-10-09 | `assets/icons/hanon_logo.png` | `web.archive.org/web/20240529110027id_/http://aiceclass.com/top/images/name_hanon.png` (matches Instagram post `CuMhc4XxAut`, 2023-07-02) | Claude, at the owner's request |
 | 2026-10-09 | ~~`assets/backgrounds/bg3.jpeg`~~ | removed at the owner's request (artist's "No reuploading" notice); in the desktop Trash | Claude |
 | 2026-10-09 | `assets/model/hanon_fullbody_model_front_only.png` | `web.archive.org/web/20260312070950id_/https://aiceclass.com/hanon/images/img_hanon.png` | Claude, alongside the logo |

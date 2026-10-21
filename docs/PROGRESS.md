@@ -31,7 +31,7 @@
 4. **Ask the owner before** creating any outward-facing resource (GitHub repo, Vercel project, Neon project, Cloudinary preset), downloading files, or deleting anything we didn't create.
 5. **Never fabricate content; never put words in Hanon's mouth.** Claude-written Japanese → `docs/JA_REVIEW_LIST.md`.
 6. **AiceClass only as history** (dissolved; owner Q3).
-7. **Git:** `main` = production; merge phase branches only with the owner's OK. Author `Moesoft: Moeko Software and Technologies <214653345+PastelSalt@users.noreply.github.com>` (repo-local config, set). Commit trailer: `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. Never force-push, never skip hooks.
+7. **Git:** `main` = production; merge phase branches only with the owner's OK. Author `Moeko Works <214653345+PastelSalt@users.noreply.github.com>` (repo-local config, set). Commit trailer: `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. Never force-push, never skip hooks.
 8. **Performance rules (FORHANON §9):** native scrolling only, no snapping/Lenis, no `backdrop-filter`, no per-frame root custom properties, no `content-visibility` on sections, effects budget ≤ Kotoha's.
 9. SVG comments must never contain `--`. Keep `[hidden] { display: none !important }`. `.vercelignore` patterns start with `/`.
 
@@ -54,7 +54,7 @@
 
 | Item | Value |
 |---|---|
-| Project root | `/home/moeko/Desktop/Moesoft/hanon-fansite` |
+| Project root | `/home/moeko/Desktop/Moeko Works/hanon-fansite` |
 | OS | Ubuntu 26.04.1 LTS |
 | Node / npm / git | v26.10.0 / 11.19.1 / 2.53.0 |
 | Browser for tests | `/usr/bin/google-chrome` (headless CDP harness, Phase 7) |

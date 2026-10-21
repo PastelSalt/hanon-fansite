@@ -41,7 +41,7 @@ const PORTRAIT_WIDTHS = [720, 1080];
 const UI_IMAGES = [
   // name logo recovered from the archived aiceclass.com; trimmed to its content (822×270) before resizing
   { name: 'logo', file: 'icons/hanon_logo.png', widths: [400, 800], extract: { left: 98, top: 0, width: 822, height: 270 } },
-  { name: 'moesoft', file: 'icons/moesoft_logo.png', widths: [360, 707] },
+  { name: 'moekoworks', file: 'icons/moekoworks_logo.png', widths: [360, 707] },
   { name: 'profile', file: 'icons/hanon_icon.jpeg', widths: [200, 400] },
   // official front-view model (© AiceClass), trimmed to the figure (752×1611)
   { name: 'pose', file: 'model/hanon_fullbody_model_front_only.png', widths: [400, 752], extract: { left: 164, top: 133, width: 752, height: 1611 } },

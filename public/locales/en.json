@@ -15,7 +15,7 @@
   },
   "loader": {
     "loading": "Loading…",
-    "credit": "This is a fan-project made by: Moeko Software and Technologies",
+    "credit": "This is a fan-project made by: Moeko Works",
     "didYouKnow": "Did you know?"
   },
   "nav": {
@@ -186,16 +186,18 @@
   },
   "footer": {
     "disclaimer": "This is an unofficial, non-profit fan site. It is not affiliated with Hanon, HaKoniwalily, StellaPhizz, HoneyWorks, MARUMOCHI or AiceClass. All characters and artwork belong to their respective owners and artists.",
-    "contact": "For issues, credit corrections or removal requests, contact:",
+    "contact": "For issues, credit corrections or removal requests, use the",
+    "contactLink": "Moeko Works contact form",
     "sections": "Sections",
     "official": "Official links",
     "credits": "Artwork credits",
     "privacy": "This site counts visits anonymously (no cookies, no personal data) to see which sections fans enjoy.",
     "backToTop": "Back to top 🐧",
-    "made": "Fan site made by Moeko Software and Technologies",
-    "copyright": "© 2026 Moeko Software and Technologies (site design & code)",
     "settings": "Settings",
-    "sister": "Sister site: Kotoha fan site"
+    "madeByLabel": "Made by",
+    "seeMore": "See more work",
+    "sisters": "Sister sites",
+    "madeBy": "Made by Moeko Works, as a fan"
   },
   "credits": {
     "model": "Character design & model",
