@@ -27,7 +27,7 @@
 
 1. **No secrets in tracked files** (code, SQL, docs, commits, logs). Bootstrap credentials only in `.env.local` and Vercel env vars. Check `git diff --cached` before every commit.
 2. **No permanent deletion of DB content** (archive table; exceptions per FORHANON §2.2).
-3. **Never touch the Kotoha site's resources** (repo `../kotoha-fansite` is read-only for us; its Vercel/Neon projects; Cloudinary folder `kotoha-fansite/`). Don't touch Vercel project `moesoft-web`.
+3. **Never touch the Kotoha site's resources** (repo `../kotoha-fansite` is read-only for us; its Vercel/Neon projects; Cloudinary folder `kotoha-fansite/`). Don't touch Vercel project `moekoworks` (the portfolio).
 4. **Ask the owner before** creating any outward-facing resource (GitHub repo, Vercel project, Neon project, Cloudinary preset), downloading files, or deleting anything we didn't create.
 5. **Never fabricate content; never put words in Hanon's mouth.** Claude-written Japanese → `docs/JA_REVIEW_LIST.md`.
 6. **AiceClass only as history** (dissolved; owner Q3).
