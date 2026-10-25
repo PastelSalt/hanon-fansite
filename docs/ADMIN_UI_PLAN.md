@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | **v0.1 (2026-10-25): built on branch `admin-ui-refresh`, not committed.** Checked on a mock preview (localhost); waiting for the owner's feedback |
+| **Status** | **v0.2 (2026-10-25): live on production** (commit `27caad2`, merge `bb32e5e` into `main`). Checked on a mock preview + production files/`/login`; a real-data check (owner signs in) is still open |
 | **Reference** | Kotoha's plan `../kotoha-fansite/docs/ADMIN_UI_PLAN.md` (read it for the why: problems found, dashboard layout, component list, ground rules) and its commit `dc82320` (the change itself, incl. the wide-screen fix: content max-width = sidebar + 1640px, `auto-fit` grids) |
 | **Scope** | Same as Kotoha: look and layout of `/admin` + `/login` only, with the data the API already returns. No API/lib/DB/scripts/vercel.json changes, no new libraries, features or dark mode |
 | **Rule** | The two admin panels stay identical in **layout, components, behaviour and locale keys**. Only the **theme** differs |
@@ -69,6 +69,6 @@ Mock server in the session scratchpad (never in the repo), launch config `admin-
 - [x] P0 Read Hanon's PROGRESS/DESIGN_SYSTEM/tokens/components and Kotoha's plan + `dc82320`; confirmed the admin JS was identical to Kotoha's old version
 - [x] P1 Port on branch `admin-ui-refresh`: HTML, JS, locales from Kotoha + Hanon branding; `admin.css` re-themed (§2); sprite icons (§3); JA strings appended
 - [x] P2 Mock preview checks: all 10 routes in EN + JA at 1920 / 1366 / 1024 / 375 px with no sideways scroll and no error states; chart hover label; range switch (30 → 90 days updates the two range KPIs); News edit dialog + save; mobile menu (scrim, Esc closes and returns focus to the toggle, tap on the scrim closes, focus moves into the menu); CSP header served; console clean except the expected 401 `auth/me` on `/login`
-- [ ] ✋ Owner feedback on the preview → adjustments
-- [ ] P3 Commit on `admin-ui-refresh` (secret scan, trailer) → push → owner OK → merge into `main` (deploys) → verify production serves the new `admin.css` / `js/admin/*` and `/login`
+- [x] ✋ Owner approved the preview (2026-10-25), no adjustments
+- [x] P3 Commit `27caad2` on `admin-ui-refresh` (secret scan clean, trailer) → pushed → merged into `main` (`bb32e5e`) → deployed. Production `admin.css`, `js/admin/*` and admin locales match the commit byte for byte; `/admin` + `/login` serve the new markup; CSP present; no console errors besides the expected 401
 - [ ] P4 Real-data check after deploy (owner signs in; nothing in this checkout can reach Neon)

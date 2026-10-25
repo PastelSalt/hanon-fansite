@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | **Implementation authorized** | ✅ 2026-10-09 by owner ("do all the recommended … then start execution phase by phase") |
-| **Last checkpoint** | 2026-10-09: **live at https://hanon-fansite.vercel.app** (Phase 5 infra done; owner adds the Cloudinary API key/secret in Vercel) |
-| **Current phase** | Phase 7 — optimisation decision; Phase 8 QA |
+| **Last checkpoint** | 2026-10-25: **admin UI refresh live** (commit `27caad2`, merge `bb32e5e` into `main`; production verified). Before that, 2026-10-09: **live at https://hanon-fansite.vercel.app** (Phase 5 infra done; owner adds the Cloudinary API key/secret in Vercel) |
+| **Current phase** | Phase 7 — optimisation decision; Phase 8 QA · admin UI refresh live, real-data check by the owner open |
 | **Next action** | See §6 |
 
 ---
@@ -161,17 +161,17 @@ Legend: `[ ]` todo · `[~]` in progress · `[x]` done & verified · `[!]` blocke
 ### Admin UI refresh: port of the Kotoha refresh (plan: `docs/ADMIN_UI_PLAN.md`, branch `admin-ui-refresh`)
 > Same layout, components, behaviour and locale keys as the Kotoha admin (its commit `dc82320`); only the theme differs (Sazanami Scrapbook: sky page, cool paper, blue = content, **gold = visitors**, penguin/star/drop/shell sprite icons). Front end only. Merge only with the owner's OK.
 - [x] Plan written (2026-10-25); Hanon's admin JS was byte-identical to Kotoha's pre-refresh JS, so the port = Kotoha's files + Hanon branding + re-themed `admin.css`
-- [x] Built on `admin-ui-refresh` (uncommitted): `admin.html`, `login.html`, `css/admin.css`, `js/admin/{analytics,content,gallery,main,pages,ui}.js`, admin locales, `JA_REVIEW_LIST.md` §5
+- [x] Built on `admin-ui-refresh`: `admin.html`, `login.html`, `css/admin.css`, `js/admin/{analytics,content,gallery,main,pages,ui}.js`, admin locales, `JA_REVIEW_LIST.md` §5
 - [x] Mock preview checks (EN/JA × 1920/1366/1024/375, chart hover, range switch, dialog save, mobile menu, CSP): pass
-- [~] ✋ Owner reviews the localhost preview
-- [ ] Commit → push → merge into `main` (deploys) → verify production `/admin` + `/login` serve the new files
+- [x] ✋ Owner approved the localhost preview (2026-10-25: "Looks good")
+- [x] Commit `27caad2` on `admin-ui-refresh` → pushed → merged into `main` (`bb32e5e`, no-ff) → Vercel deployed in ~30 s. Verified: production `admin.css`, `js/admin/{ui,analytics,main,pages,content,gallery}.js` and both admin locales are byte-identical to the commit; `/admin` has the grouped sidebar + scrim, `/login` the penguin/star decorations; CSP header present; live `/login` console shows only the expected 401 `auth/me`
 - [ ] Real-data check by the owner after deploy
 
 ---
 
 ## 6. CURRENT FOCUS / NEXT ACTION
 
-**2026-10-25: admin UI refresh** built on branch `admin-ui-refresh` (not committed). Owner is reviewing it on the mock preview (`admin-preview` in `.claude/launch.json`, http://localhost:3001/admin). Next: feedback → adjustments → commit → push → owner OK → merge into `main` → verify production. Details: `docs/ADMIN_UI_PLAN.md` §6.
+**2026-10-25: admin UI refresh is live** (merge `bb32e5e`). Next: the owner signs in at https://hanon-fansite.vercel.app/login and walks the panel with real data (dashboard numbers, one edit/save); report anything odd. Details: `docs/ADMIN_UI_PLAN.md` §6.
 
 Older (Phase 2–8):
 Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to create the Neon project, Cloudinary preset and Vercel project, (3) GitHub repo. Meanwhile, local-only work: Phase 7 harness (perf + behaviour) and the local parts of Phase 8.
@@ -233,4 +233,5 @@ Ask the owner: (1) approve the look (screenshots = style tile ✋), (2) OK to cr
 ### 2026-10-25: Session 3 (admin UI refresh port)
 - Owner asked for the Kotoha admin UI refresh (Kotoha commit `dc82320`) on Hanon, same layout/components/behaviour, Hanon's own theme.
 - Branch `admin-ui-refresh`: Kotoha's refreshed admin files + Hanon branding; `admin.css` re-themed (sky page, cool paper, blue content, gold visitors, navy shadows); clover icons → `.pg` penguin / star / drop / shell; new JA strings → `JA_REVIEW_LIST.md` §5. Plan: `docs/ADMIN_UI_PLAN.md`. Nothing under `api/`, `lib/`, `db/`, `scripts/`, `vercel.json` changed.
-- Checked on a scratchpad mock preview (port 3001; read-only proxy of the production public API, fake admin API in memory). All pass (see plan §6). Not committed; waiting for the owner's feedback.
+- Checked on a scratchpad mock preview (port 3001; read-only proxy of the production public API, fake admin API in memory). All pass (see plan §6).
+- Owner approved → commit `27caad2` (author: the noreply address from rule 7), branch pushed, merged into `main` as `bb32e5e`, pushed; production verified (file hashes match, CSP present, no console errors besides the expected 401). Next: owner's real-data check.
