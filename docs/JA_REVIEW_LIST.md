@@ -67,3 +67,17 @@ Compiled from official pages; the wording follows the official 実績 style used
 | News vertical text | はのんの最新情報 | ⏳ |
 | Discography vertical text | さざなみのように癒す歌声 | ⏳ |
 | Gallery vertical text | はのメン大集合 | ⏳ |
+
+## 5. Admin panel strings (`public/locales/admin/ja.json`, admin UI refresh 2026-10-25)
+
+Added with the admin UI refresh (`docs/ADMIN_UI_PLAN.md`). Same wording as the Kotoha admin (its `JA_REVIEW_LIST.md`), listed here anyway because the owner asked for every new admin string; one review covers both sites.
+
+| Key | Japanese | Status |
+|---|---|---|
+| `nav.groups.content` / `records` / `account` | コンテンツ／記録／アカウント | ⏳ |
+| `dashboard.contentTitle` | サイトのコンテンツ | ⏳ |
+| `dashboard.draft1` / `draftsN` | 下書き 1件／下書き {n}件 | ⏳ |
+| `dashboard.allPublished` | すべて公開中 | ⏳ |
+| `analytics.groups.audience` / `traffic` / `engagement` | 訪問者／アクセス／反応 | ⏳ |
+| `analytics.totalShown` | このグラフ：訪問 {visits}件・ユニーク訪問者 {uniques}人 | ⏳ |
+| `analytics.peakHour` | いちばん多い時間帯：{h}時台（訪問 {n}件） | ⏳ |
